@@ -15,7 +15,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    padding-top: 40px ;
+
+    display: grid;
+    place-items: center;
 }
 .nav-bar {
     width: 90%;
@@ -27,10 +29,13 @@
     left: 70px;
     top: 40px;
     /* transform: translateX(-50%); */
+
+    z-index: 100;
 }
 .navbar-toggler {
     width: 100%;
     position: sticky;
+
     left: 0;
     top: 0;
     transform: translateX(0);
@@ -41,6 +46,8 @@
     font-weight: 700;
     /* justify-content: end;
     align-items: center; */
+
+    z-index: 100;
 }
 .nav-bar .navbar-menu-slide{
     display: none;
@@ -83,7 +90,7 @@
     display: none;
 }
 .search-box-container .search-box {
-    width: 80%;
+    width: 95%;
     height: 100%;
     outline: none;
     background: none;
@@ -102,16 +109,73 @@
 .search-close-btn:hover {
     color: var(--global-white-color);
 }
-@media (max-width: 800px){
-    .nav-bar .navbar-menu-slide{
-        display: block;
-        
-    }
-    .nav-bar .navbar-menu,.nav-bar .navbar-menu-slide {
-        display: none;
 
-    }
-    .slide-btn-container {
-        display: grid;
-    }
+.header-banner-section {
+    padding: 0px 120px;
+    width: 100%;
 }
+.banner-carousel-content-title {
+    font-size: 60px;
+}
+
+.banner-carousel-button .carousel-button{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    color: var(--global-white-color);
+    text-align: center;
+    line-height: 45px;
+    background: var(--global-primary-gradient-color-90deg);
+    font-size: 30px;
+    display: inline-block;
+    border-radius: 50%;
+}
+.banner-carousel-button span {
+    font-size: 13px;
+    display: inline-block;
+}
+.carousel-prev-btn ,.carousel-next-btn {
+    width: 50px;
+    height: 100%;
+    font-size: 30px;
+    opacity: 0.2;
+    background-color: rgba(0, 0, 0, 0.05);
+    position: absolute;
+    top: 0;
+
+    transition: all 0.3s ease 0s;
+}
+.carousel-prev-btn {
+    left: -50px;
+}
+.carousel-next-btn {
+    right: -50px;
+}
+.carousel-prev-btn:hover ,.carousel-next-btn:hover {
+    opacity: 0.5;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.banner-carousel-indicator {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    left: 0;
+    bottom: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner-carousel-indicator .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0px 10px;
+    border-radius: 50%;
+    background-color: rgba(94, 94, 94, 0.8);
+    opacity: 0.5;
+    cursor: pointer;
+}
+.banner-carousel-indicator .dot.active {
+    opacity: 1;
+}
+

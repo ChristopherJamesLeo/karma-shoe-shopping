@@ -1,0 +1,21 @@
+@media (max-width: 1000px){
+
+    .banner-content-img-container {
+        display: none;
+    }
+}
+@media (max-width: 800px){
+
+    .nav-bar .navbar-menu-slide{
+        display: block;
+        
+    }
+    .nav-bar .navbar-menu,.nav-bar .navbar-menu-slide {
+        display: none;
+
+    }
+    .slide-btn-container {
+        display: grid;
+    }
+
+}
