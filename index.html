@@ -14,65 +14,54 @@
     <!-- Font awesome 5.15.4 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./custom_css/style.css">
+    <link rel="stylesheet" href="./custom_css/media-style.css">
 
 </head>
 <body>
     <!-- Header Start  -->
-    <header class=" w-full h-screen header">
+    <header class="w-full h-screen header">
         <!-- navbar start -->
-        <nav id="navbar" class="navbar-bar justify-content-between items-center shadow-lg">
-
-            <div class="">
-                <div class="row justify-content-between items-center">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="row justify-content-between">
-                            <div class="col-md-6 navbar-left">
-                                <a href="#">
-                                    <img src="./assets/img/background-imgs/logo.png.webp" alt="logo">
-                                </a>
-                            </div>
-                            <button id="nav-slide-btn" class="col-md-1 p-2 nav-button">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </button>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="navbar-right">
-                            <ul class="col-6 uppercase navbar-menu">
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Home</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Shop</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Blog</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Pages</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Contact</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2"><i class="fas fa-shopping-cart"></i></a></li>
-                                <li id="search-btn" class="px-4 navbar-menu-list"><a href="#"class="nav-link py-2"><i class="fas fa-search"></i></a></li>
-                            </ul>
-                        </div>
-                        <ul class="col-12 uppercase navbar-menu-slide">
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Home</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Shop</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Blog</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Pages</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Contact</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" id="search-btn" class="nav-link py-2"><i class="fas fa-search"></i></a></li>
-                        </ul> 
-                    </div>
- 
+        <nav id="navbar" class=" nav-bar shadow-md">
+            <div class="row justify-content-between items-center">
+                <div class="col-6">
+                    <a href="#">
+                        <img src="./assets/img/background-imgs/logo.png.webp" alt="">
+                    </a>
                 </div>
-   
+                <div class="col-6 flex justify-content-end">
+                    <div class="slide-btn-container place-items-center">
+                        <button id="slide-btn" class="slide-btn">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </button>
 
+                    </div>
+                    <ul class="uppercase navbar-menu">
+                        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Shop</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Pages</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Content</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-12 flex justify-content-start">
+                    <ul class="uppercase navbar-menu-slide">
+                        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Shop</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Pages</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Content</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
+                    </ul>
+                </div>
             </div>
-   
-
-
-
-            <div id="search-box" class="absolute w-full justify-content-center items-center searchbox">
-                <input type="text" name="search-input" id="search-input" class="h-full search-input" placeholder="Search ...">
-                <div id="search-box-close"><i class="fas fa-times"></i></div>
+            <div id="search-box-container" class="search-box-container">
+                <input type="text" id="search-box" class="search-box" placeholder="Search ...">
+                <span id="search-close-btn" class="search-close-btn">&times;</span>
             </div>
         </nav>
         <script>
@@ -80,17 +69,52 @@
 
             window.addEventListener("scroll",function(){
                 let scorllYValue = scrollY;
-                console.log(scorllYValue);
+                // console.log(scorllYValue);
                 if(scorllYValue > 30) {
-                    getnavbar.classList.add("navbar-toggle");
+                    // getnavbar.classList.remove("nav-bar");
+                    getnavbar.classList.add("navbar-toggler");
                 }else {
-                    getnavbar.classList.remove("navbar-toggle");
+                    // getnavbar.classList.add("nav-bar");
+                    getnavbar.classList.remove("navbar-toggler");
                 }
             })
         </script>
         <!-- navbar end -->
         <!-- header banner Start -->
+        <section class="header-banner-section">
+            <div class="relative banner-carousel-container">
+                <div class="banner-carousel-indicator">
+                    <div class="dot active" ></div>
+                    <div class="dot" ></div>
+                    <div class="dot" ></div>
+                </div>
+                <div class="banner-carousel-content-container">
+                    <div class="banner-carousel-content">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-12 banner-content">
+                                <div class="font-bold banner-carousel-content-title">
+                                    <h1 class="">Nike New Collection !</h1>
+                                </div>
+                                <div class="my-4 banner-carousel-content-para">
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel inventore labore unde deserunt est. Eos, voluptas nisi reprehenderit fugit temporibus enim iusto ex. Repellat non atque facere, similique hic ab.
+                                    </p>
+                                </div>
+                                <div class="banner-carousel-button">
+                                    <a href="#" class="carousel-button">+</a><span class="uppercase">Add To bag</span>
+                                </div>
 
+                            </div>
+                            <div class="col-lg-7 banner-content-img-container">
+                                <img src="./assets/img/banner-imgs/banner-img.png.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="carousel-prev-btn" class="carousel-prev-btn"><</button>
+                <button id="carousel-next-btn" class="carousel-next-btn">></button>
+            </div>
+        </section>
         <!-- header banner End -->
     </header>
 
@@ -101,13 +125,13 @@
     <script src="./assets/libs/jquery-3.6.1.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("#nav-slide-btn").click(function(){
+            $("#slide-btn").click(function(){
                 $(".navbar-menu-slide").animate({
                     "height": "toggle",
                 },500)
             })
-            $("#search-btn,#search-box-close").click(function(){
-                $("#search-box").animate({
+            $("#search-box-btn,#search-close-btn").click(function(){
+                $("#search-box-container,#search-box").animate({
                     "height": "toggle",
                 },500)
             })
