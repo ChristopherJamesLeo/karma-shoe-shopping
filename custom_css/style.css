@@ -1,0 +1,120 @@
+:root {
+    
+    --global-main-color : #ffba00;
+    --global-primary-color : #363636;
+    --global-secondary-color : #777777;
+    --global-white-color : #fff;
+    --global-primary-gradient-color-90deg : linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
+    --global-primary-gradient-color-270deg : linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
+    --font-primary-family : sans-serif;
+
+}
+.header {
+    background: url("../assets/img/banner-imgs/banner-bg.jpg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* position: relative; */
+}
+.navbar-bar {
+    width: 90%;
+
+    /* margin-top: 50px; */
+    margin : 40px auto;
+    padding: 14px 50px;
+    background-color: var(--global-white-color);
+    /* display: flex;*/
+    position: relative;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    /* top: 0; */
+
+    transition: all 0.2s ease 0s;
+}
+.navbar-toggle {
+    position: sticky;
+    left: 0;
+    top: 0;
+    /* transform: translateX(0); */
+    width: 100%;
+}
+.nav-button {
+    width: 48px;
+    border: 1px solid var(--global-primary-color);
+    padding: 0px 5px;
+    border-radius: 5px;
+    display: none;
+}
+.nav-button div {
+    width: 30px;
+    height: 4px;
+    background-color: #363636;
+    transition: all 0.3s ease 0s;
+}
+.nav-button div:nth-child(2){
+    margin: 4px 0px;
+}
+.nav-button:hover div {
+    background-color: var(--global-main-color);
+}
+.navbar-menu {
+    display: flex;
+}
+.navbar-menu .navbar-menu-list ,.navbar-menu-slide .navbar-menu-list {
+    font-size: 12px;
+    font-weight: 500;
+}
+.navbar-menu-slide{
+    display: none;
+}
+.navbar-menu .navbar-menu-list:hover,.navbar-menu-slide .navbar-menu-list:hover {
+    color: var(--global-main-color);
+}
+.searchbox{
+    height: 50px;
+    background: var(--global-primary-gradient-color-270deg);
+    left: 0;
+    top: 100%;
+
+    display: flex;
+
+    /* transition: all 1s ease 0s; */
+}
+.searchbox input {
+    /* height: 50px; */
+    width: 90%;
+    /* display: inline-block; */
+    margin: 0 auto;
+    outline: none;
+    color: var(--global-white-color);
+
+    background-color: transparent;
+}
+.searchbox input::placeholder {
+    color: var(--global-white-color);
+}
+.searchbox div {
+    margin-right: 30px;
+    color: var(--global-white-color);
+    cursor: pointer;
+}
+@media(max-width:800px){
+    body{
+        background-color: #ff6c00;
+    }
+    .navbar {
+        width: 100%;
+        padding: 10px 10px;
+        display: block;
+        background-color: #777777;
+    }
+    .navbar-right {
+        display: none;
+    }
+    .nav-button {
+        display: block;
+    }
+    .navbar-menu-slide {
+        display: block;
+    }
+}
