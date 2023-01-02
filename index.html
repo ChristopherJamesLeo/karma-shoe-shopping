@@ -18,61 +18,49 @@
 </head>
 <body>
     <!-- Header Start  -->
-    <header class=" w-full h-screen header">
+    <header class="w-full h-screen header">
         <!-- navbar start -->
-        <nav id="navbar" class="navbar-bar justify-content-between items-center shadow-lg">
-
-            <div class="">
-                <div class="row justify-content-between items-center">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="row justify-content-between">
-                            <div class="col-md-6 navbar-left">
-                                <a href="#">
-                                    <img src="./assets/img/background-imgs/logo.png.webp" alt="logo">
-                                </a>
-                            </div>
-                            <button id="nav-slide-btn" class="col-md-1 p-2 nav-button">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </button>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                        <div class="navbar-right">
-                            <ul class="col-6 uppercase navbar-menu">
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Home</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Shop</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Blog</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Pages</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Contact</a></li>
-                                <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2"><i class="fas fa-shopping-cart"></i></a></li>
-                                <li id="search-btn" class="px-4 navbar-menu-list"><a href="#"class="nav-link py-2"><i class="fas fa-search"></i></a></li>
-                            </ul>
-                        </div>
-                        <ul class="col-12 uppercase navbar-menu-slide">
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Home</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Shop</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Blog</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Pages</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2">Contact</a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" class="nav-link py-2"><i class="fas fa-shopping-cart"></i></a></li>
-                            <li class="px-4 navbar-menu-list"><a href="#" id="search-btn" class="nav-link py-2"><i class="fas fa-search"></i></a></li>
-                        </ul> 
-                    </div>
- 
+        <nav id="navbar" class=" nav-bar shadow-md">
+            <div class="row justify-content-between items-center">
+                <div class="col-6">
+                    <a href="#">
+                        <img src="./assets/img/background-imgs/logo.png.webp" alt="">
+                    </a>
                 </div>
-   
+                <div class="col-6 flex justify-content-end">
+                    <div class="slide-btn-container place-items-center">
+                        <button id="slide-btn" class="slide-btn">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </button>
 
+                    </div>
+                    <ul class="uppercase navbar-menu">
+                        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Shop</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Pages</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Content</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-12 flex justify-content-start">
+                    <ul class="uppercase navbar-menu-slide">
+                        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Shop</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Pages</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Content</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
+                    </ul>
+                </div>
             </div>
-   
-
-
-
-            <div id="search-box" class="absolute w-full justify-content-center items-center searchbox">
-                <input type="text" name="search-input" id="search-input" class="h-full search-input" placeholder="Search ...">
-                <div id="search-box-close"><i class="fas fa-times"></i></div>
+            <div id="search-box-container" class="search-box-container">
+                <input type="text" id="search-box" class="search-box" placeholder="Search ...">
+                <span id="search-close-btn" class="search-close-btn">&times;</span>
             </div>
         </nav>
         <script>
@@ -80,11 +68,13 @@
 
             window.addEventListener("scroll",function(){
                 let scorllYValue = scrollY;
-                console.log(scorllYValue);
+                // console.log(scorllYValue);
                 if(scorllYValue > 30) {
-                    getnavbar.classList.add("navbar-toggle");
+                    // getnavbar.classList.remove("nav-bar");
+                    getnavbar.classList.add("navbar-toggler");
                 }else {
-                    getnavbar.classList.remove("navbar-toggle");
+                    // getnavbar.classList.add("nav-bar");
+                    getnavbar.classList.remove("navbar-toggler");
                 }
             })
         </script>
@@ -93,7 +83,18 @@
 
         <!-- header banner End -->
     </header>
-
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum eaque praesentium dignissimos dolore vitae quaerat eligendi quisquam obcaecati, nihil deleniti neque veniam quo aliquid et, facilis aliquam doloremque optio labore!
+        Nesciunt excepturi molestiae obcaecati in dolore sapiente quibusdam tenetur officiis assumenda quidem, nostrum voluptatem sit expedita? Veritatis molestias quo libero alias, et ipsam, eligendi magni nemo aliquid sed voluptatibus assumenda.
+        Enim nihil, ullam, omnis rerum aperiam quos illo architecto animi asperiores iure incidunt labore dolorum, recusandae laudantium cumque quibusdam? Enim ea nihil, nisi tempora esse assumenda corrupti accusantium provident officiis?
+        Natus quasi corporis voluptate nostrum odit cumque dolore nobis sapiente suscipit veniam optio, dolor odio eum doloremque eveniet blanditiis laboriosam libero itaque asperiores exercitationem. Culpa reprehenderit quis quasi inventore eius!
+        Animi distinctio accusantium numquam rerum minima? Dicta mollitia accusantium, magnam fugit possimus veniam eaque, praesentium asperiores consequatur repellendus explicabo laboriosam sapiente error enim unde placeat laborum consequuntur dolorem laudantium inventore!
+        Nobis assumenda ipsam officiis mollitia eveniet cum expedita unde necessitatibus distinctio, consequuntur rerum molestias officia odio eius rem totam repellendus obcaecati, maxime beatae impedit. Non nostrum similique iusto quia aliquid.
+        Eius ipsum, ullam optio harum sint hic a qui alias illo est consequuntur, rem modi maiores incidunt iure veritatis beatae ad fuga ducimus animi. Quos, nesciunt assumenda. Assumenda, neque exercitationem?
+        Quos, voluptatem officia. Cumque temporibus impedit expedita quas est aliquam deleniti, minima atque rerum placeat laborum esse ipsa nobis, totam nemo excepturi? Officiis magni accusamus id, aperiam sunt voluptate a.
+        Velit ducimus, assumenda in ut accusantium quidem nemo aliquam doloremque. Eligendi consequatur eveniet nam dolor facere enim quasi ducimus libero, ut aliquam alias eum culpa porro possimus earum consequuntur qui.
+        Laboriosam assumenda tempora impedit numquam laudantium libero praesentium ab magni? Praesentium necessitatibus commodi similique quo, culpa ipsa at dolorem inventore quod vitae sunt possimus et quam fugiat magnam eligendi ex.
+    </p>
     <!-- Header End -->
     <!-- Boostrap 5 -->
     <script src="./assets/libs/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
@@ -101,13 +102,13 @@
     <script src="./assets/libs/jquery-3.6.1.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("#nav-slide-btn").click(function(){
+            $("#slide-btn").click(function(){
                 $(".navbar-menu-slide").animate({
                     "height": "toggle",
                 },500)
             })
-            $("#search-btn,#search-box-close").click(function(){
-                $("#search-box").animate({
+            $("#search-box-btn,#search-close-btn").click(function(){
+                $("#search-box-container,#search-box").animate({
                     "height": "toggle",
                 },500)
             })
