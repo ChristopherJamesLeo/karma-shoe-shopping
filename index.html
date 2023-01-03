@@ -84,9 +84,10 @@
         <section class="header-banner-section">
             <div class="relative banner-carousel-container">
                 <div class="banner-carousel-indicator">
-                    <div class="dot active" ></div>
-                    <div class="dot" ></div>
-                    <div class="dot" ></div>
+                    <div class="dot" show-data = "0"></div>
+                    <div class="dot" show-data = "1"></div>
+                    <div class="dot" show-data = "2"></div>
+                    <div class="dot" show-data = "3"></div>
                 </div>
                 <div class="banner-carousel-content-container">
                     <div class="banner-carousel-content">
@@ -110,14 +111,577 @@
                             </div>
                         </div>
                     </div>
+                    <div class="banner-carousel-content">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-12 banner-content">
+                                <div class="font-bold banner-carousel-content-title">
+                                    <h1 class="">All Star Collection !</h1>
+                                </div>
+                                <div class="my-4 banner-carousel-content-para">
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel inventore labore unde deserunt est. Eos, voluptas nisi reprehenderit fugit temporibus enim iusto ex. Repellat non atque facere, similique hic ab.
+                                    </p>
+                                </div>
+                                <div class="banner-carousel-button">
+                                    <a href="#" class="carousel-button">+</a><span class="uppercase">Add To bag</span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-7 banner-content-img-container">
+                                <img src="./assets/img/banner-imgs/e-p1.png.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-carousel-content">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-12 banner-content">
+                                <div class="font-bold banner-carousel-content-title">
+                                    <h1 class="">Nike New Collection !</h1>
+                                </div>
+                                <div class="my-4 banner-carousel-content-para">
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel inventore labore unde deserunt est. Eos, voluptas nisi reprehenderit fugit temporibus enim iusto ex. Repellat non atque facere, similique hic ab.
+                                    </p>
+                                </div>
+                                <div class="banner-carousel-button">
+                                    <a href="#" class="carousel-button">+</a><span class="uppercase">Add To bag</span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-7 banner-content-img-container">
+                                <img src="./assets/img/banner-imgs/banner-img.png.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner-carousel-content">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-12 banner-content">
+                                <div class="font-bold banner-carousel-content-title">
+                                    <h1 class="">All Star Collection !</h1>
+                                </div>
+                                <div class="my-4 banner-carousel-content-para">
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel inventore labore unde deserunt est. Eos, voluptas nisi reprehenderit fugit temporibus enim iusto ex. Repellat non atque facere, similique hic ab.
+                                    </p>
+                                </div>
+                                <div class="banner-carousel-button">
+                                    <a href="#" class="carousel-button">+</a><span class="uppercase">Add To bag</span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-7 banner-content-img-container">
+                                <img src="./assets/img/banner-imgs/e-p1.png.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <button id="carousel-prev-btn" class="carousel-prev-btn"><</button>
                 <button id="carousel-next-btn" class="carousel-next-btn">></button>
             </div>
         </section>
+        <script>
+            let getBannerCarouselContents = Array.from(document.querySelectorAll(".banner-carousel-content"));
+            let getBannerCarouselPrevBtn = document.getElementById("carousel-prev-btn");
+            let getBannerCarouselNextBtn = document.getElementById("carousel-next-btn");
+            let getBannerCarouselIndicators =Array.from(document.querySelectorAll(".dot")) ;
+
+            let showCarouselContent = 0;
+
+            function showBannerCarousel(num){
+                for(let i = 0 ; i < getBannerCarouselContents.length ; i++){
+                    getBannerCarouselContents[i].classList.remove("carousel-show");
+                    getBannerCarouselIndicators[i].classList.remove("active");
+                }
+                getBannerCarouselContents[num].classList.add("carousel-show");
+                getBannerCarouselIndicators[num].classList.add("active");
+            }
+            showBannerCarousel(showCarouselContent);
+
+            getBannerCarouselPrevBtn.addEventListener("click",function(){
+                showCarouselContent--;
+                if(showCarouselContent < 0){
+                    showCarouselContent =  getBannerCarouselContents.length-1;
+                }
+
+                showBannerCarousel(showCarouselContent);
+            })
+            getBannerCarouselNextBtn.addEventListener("click",function(){
+                showCarouselContent++; 
+                if(showCarouselContent >= getBannerCarouselContents.length){
+                    showCarouselContent = 0
+                }else {
+                    
+                }
+                showBannerCarousel(showCarouselContent);
+            })
+            for(let i = 0 ; i < getBannerCarouselIndicators.length ; i ++){
+                getBannerCarouselIndicators[i].addEventListener("click",function(){
+                    // console.log(this.getAttribute("show-data"))
+                    showBannerCarousel(showCarouselContent = this.getAttribute("show-data"))
+                })
+            }
+        </script>
         <!-- header banner End -->
     </header>
+    <!-- services section start -->
+    <section class="services-section">
+        <div class="shadow-lg service-section-container">
+            <div class="row p-5">
+                <div class="col-lg-3 col-md-6 col-sm-12 my-3 grid place-items-center services-container border-x">
+                    <div class="row">
+                        <div class="col-12 flex flex-col justiy-center items-center">
+                            <i class="fas fa-truck"></i>
+                            <span>Free Delivery</span>
+                            <span>Free Shipping On all order</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 my-3 grid place-items-center services-container border-x">
+                    <div class="row">
+                        <div class="col-12 flex flex-col justiy-center items-center">
+                            <i class="fas fa-sync"></i>
+                            <span>Return Policy</span>
+                            <span>Free Shipping On all order</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 my-3 grid place-items-center services-container border-x">
+                    <div class="row">
+                        <div class="col-12 flex flex-col justiy-center items-center">
+                            <i class="fas fa-headphones"></i>
+                            <span>24/7 Support</span>
+                            <span>Free Shipping On all order</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 my-3 grid place-items-center services-container border-x">
+                    <div class="row">
+                        <div class="col-12 flex flex-col justiy-center items-center">
+                            <i class="fas fa-coins"></i>
+                            <span>Secure Payment</span>
+                            <span>Free Shipping On all order</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services section End -->
+    <!-- Gallery Section Start -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <div class="gallery-content">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="row">
+                            <div class="col-lg-8 col-sm-12  gallery-img-container "  show-gallary="1">
+                                <img src="./assets/img/background-imgs/c1.jpg.webp" alt="1">
+                            </div>
+                            <div class="col-lg-4 col-sm-12 gallery-img-container"  show-gallary="2" >
+                                <img src="./assets/img/background-imgs/c2.jpg.webp" alt="2">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-lg-4 col-sm-12 gallery-img-container" show-gallary="3">
+                                <img src="./assets/img/background-imgs/c3.jpg.webp" alt="3">
+                            </div>
+                            <div class="col-lg-8 col-sm-12 gallery-img-container"  show-gallary="4" >
+                                <img src="./assets/img/background-imgs/c4.jpg.webp" alt="4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 gallery-img-container" show-gallary="5">
+                        <img src="./assets/img/background-imgs/c5.jpg.webp" alt="5">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Gallery Modal Start -->
+        <div id="gallery-modal" class="gallery-modal">
+            <div class="modal-content-container">
+                <div class="relative modal-content">
+                    <span id="close-gallery-modal-btn">&times;</span>
+                    <div class="show-content active">
+                        <img src="./assets/img/background-imgs/c1.jpg.webp" alt="c1">
+                    </div>
+                    <div class="show-content">
+                        <img src="./assets/img/background-imgs/c2.jpg.webp" alt="c2">
+                    </div>
+                    <div class="show-content">
+                        <img src="./assets/img/background-imgs/c3.jpg.webp" alt="c3">
+                    </div>
+                    <div class="show-content ">
+                        <img src="./assets/img/background-imgs/c4.jpg.webp" alt="c4">
+                    </div>
+                    <div class="show-content ">
+                        <img src="./assets/img/background-imgs/c5.jpg.webp" alt="c5">
+                    </div>
+                    <div class="absolute left-0 top-full modal-indicator-container">
+                        <div class="relative modal-indicator">
+                            <div class="show-indicator">
+                                <div class="show-indicator-img active" onclick="showModalGallary(0)">
+                                    <img src="./assets/img/background-imgs/c1.jpg.webp" alt="1">
+                                </div>
+                                <div class="show-indicator-img" onclick="showModalGallary(1)">
+                                    <img src="./assets/img/background-imgs/c2.jpg.webp" alt="2">
+                                </div>
+                                <div class="show-indicator-img" onclick="showModalGallary(2)">
+                                    <img src="./assets/img/background-imgs/c3.jpg.webp" alt="3">
+                                </div>
+                                <div class="show-indicator-img" onclick="showModalGallary(3)">
+                                    <img src="./assets/img/background-imgs/c4.jpg.webp" alt="4">
+                                </div>
+                                <div class="show-indicator-img" onclick="showModalGallary(4)">
+                                    <img src="./assets/img/background-imgs/c5.jpg.webp" alt="5">
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
+                    <button type="button" id="prev-btn" class="prev-btn"><</button>
+                    <button type="button" id="next-btn" class="next-btn">></button>
+                </div>
+
+            </div>
+        </div>
+        <!-- Gallery Modal End -->
+        <script>
+            let getGalleryImgs = document.getElementsByClassName("gallery-img-container");
+
+            let getModal = document.getElementById("gallery-modal");
+
+            let getShowContent = document.getElementsByClassName("show-content");
+
+            let getModalShowIndicator = document.getElementsByClassName("show-indicator-img");
+
+            let getModalPrevBtn = document.getElementById("prev-btn");
+
+            let getModalNextBtn = document.getElementById("next-btn");
+
+            let getGalleryModalCloseBtn = document.getElementById("close-gallery-modal-btn");
+
+            let showGallaryIdx = 2 ;
+
+            for(let i = 0 ; i < getGalleryImgs.length ; i++){
+                getGalleryImgs[i].addEventListener("click",function(e){
+                    getModal.classList.add("show-modal");
+                    let getIdx = this.getAttribute("show-gallary")-1;
+                    console.log(getIdx);
+                    showModalGallary(getIdx);
+                })
+
+
+            }
+
+            function showModalGallary(num){
+                for(let i = 0 ; i < getShowContent.length ; i++){
+                    getShowContent[i].classList.remove("active");
+                    getModalShowIndicator[i].classList.remove("active");
+                }
+                getShowContent[num].classList.add("active");
+                getModalShowIndicator[num].classList.add("active");
+            }
+            showModalGallary(showGallaryIdx);
+
+            getGalleryModalCloseBtn.addEventListener("click",function(){
+                getModal.classList.remove("show-modal");
+            })
+            
+            getModalPrevBtn.addEventListener("click",function(){
+                showGallaryIdx--;
+                if(showGallaryIdx < 0 ){
+                    showGallaryIdx = getShowContent.length-1;
+                }
+                showModalGallary(showGallaryIdx);
+                
+            })
+            getModalNextBtn.addEventListener("click",function(){
+                showGallaryIdx++;
+                if(showGallaryIdx >= getShowContent.length){
+                    showGallaryIdx = 0 ;
+                }
+                showModalGallary(showGallaryIdx);
+            })
+
+            window.onclick = function(e){
+                if(e.target.classList.contains("modal-content-container")){
+                    getModal.classList.remove("show-modal");
+                }
+            }
+
+        </script>
+    </section>
+    <!-- Gallery Section End -->
+    <!-- Products Seciton Start -->
+    <section class="product-section">
+        <div class="product-section-container">
+            <div class="product-container">
+                <div class="product-container-title">
+                    <h1 >Latest Products</h1>
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quo tempore dolore aperiam cupiditate molestiae voluptatum exercitationem id amet laboriosam architecto 
+                    </p>
+                </div>
+                <div class="show-products-container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
+                            <div class="w-full product-items">
+                                <div class="product-img-container">
+                                    <img src="./assets/img/product-imgs/p1.jpg.webp" alt="">
+                                </div>
+                                <div class="uppercase font-semibold my-2 product-detail">
+                                    <p class="leading-tight">Addidas new hammer sole for sports person</p>
+                                </div>
+                                <div class="price-container my-2">
+                                    <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
+                                </div>
+                                <div class="item-tools">
+                                    <ul class="flex item-tool-list">
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
+                                            </ul>
+                                        </li>   
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">view more</span></li>
+                                            </ul>
+
+                                        </li>                                             
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
+                            <div class="w-full product-items">
+                                <div class="product-img-container">
+                                    <img src="./assets/img/product-imgs/p1.jpg.webp" alt="">
+                                </div>
+                                <div class="uppercase font-semibold my-2 product-detail">
+                                    <p class="leading-tight">Addidas new hammer sole for sports person</p>
+                                </div>
+                                <div class="price-container my-2">
+                                    <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
+                                </div>
+                                <div class="item-tools">
+                                    <ul class="flex item-tool-list">
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
+                                            </ul>
+                                        </li>   
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">view more</span></li>
+                                            </ul>
+
+                                        </li>                                             
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
+                            <div class="w-full product-items">
+                                <div class="product-img-container">
+                                    <img src="./assets/img/product-imgs/p1.jpg.webp" alt="">
+                                </div>
+                                <div class="uppercase font-semibold my-2 product-detail">
+                                    <p class="leading-tight">Addidas new hammer sole for sports person</p>
+                                </div>
+                                <div class="price-container my-2">
+                                    <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
+                                </div>
+                                <div class="item-tools">
+                                    <ul class="flex item-tool-list">
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
+                                            </ul>
+                                        </li>   
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">view more</span></li>
+                                            </ul>
+
+                                        </li>                                             
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
+                            <div class="w-full product-items">
+                                <div class="product-img-container">
+                                    <img src="./assets/img/product-imgs/p1.jpg.webp" alt="">
+                                </div>
+                                <div class="uppercase font-semibold my-2 product-detail">
+                                    <p class="leading-tight">Addidas new hammer sole for sports person</p>
+                                </div>
+                                <div class="price-container my-2">
+                                    <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
+                                </div>
+                                <div class="item-tools">
+                                    <ul class="flex item-tool-list">
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
+                                            </ul>
+                                        </li>   
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">view more</span></li>
+                                            </ul>
+
+                                        </li>                                             
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
+                            <div class="w-full product-items">
+                                <div class="product-img-container">
+                                    <img src="./assets/img/product-imgs/p1.jpg.webp" alt="">
+                                </div>
+                                <div class="uppercase font-semibold my-2 product-detail">
+                                    <p class="leading-tight">Addidas new hammer sole for sports person</p>
+                                </div>
+                                <div class="price-container my-2">
+                                    <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
+                                </div>
+                                <div class="item-tools">
+                                    <ul class="flex item-tool-list">
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
+                                            </ul>
+                                        </li>   
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">view more</span></li>
+                                            </ul>
+
+                                        </li>                                             
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
+                            <div class="w-full product-items">
+                                <div class="product-img-container">
+                                    <img src="./assets/img/product-imgs/p1.jpg.webp" alt="">
+                                </div>
+                                <div class="uppercase font-semibold my-2 product-detail">
+                                    <p class="leading-tight">Addidas new hammer sole for sports person</p>
+                                </div>
+                                <div class="price-container my-2">
+                                    <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
+                                </div>
+                                <div class="item-tools">
+                                    <ul class="flex item-tool-list">
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
+                                            </ul>
+                                        </li>   
+                                        <li class="relative flex item-tool-list-item">
+                                            <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                            <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                <li class="item-show-detail"><span class="inlin-block">view more</span></li>
+                                            </ul>
+
+                                        </li>                                             
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>                                                                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Products Section End -->
     <!-- Header End -->
     <!-- Boostrap 5 -->
     <script src="./assets/libs/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
