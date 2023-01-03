@@ -487,4 +487,84 @@
 .product-timer-main-container {
     padding: 30px;
     background-color: var(--global-white-color);
+    border-radius: 10px;
+}
+.product-timer-main-container .timer {
+    display: inline-block;
+    width: 24%;
+    /* background-color: #828bb2; */
+    
+}
+.product-timer-main-container .timer .time {
+    font-size: 30px;
+}
+
+.shop-now-btn-container {
+    width: 100%;
+    text-align: center;
+    
+}
+
+.shop-now-btn-container a {
+    display: inline-block;
+    padding: 15px 20px;
+    background: var(--global-primary-gradient-color-90deg);
+    color: var(--global-white-color);
+    font-weight: 700;
+
+
+    border-radius: 20px;
+}
+.shop-carousel-container {
+    width: 80%;
+
+}
+.shop-carousel-container.active {
+    display: block;
+    animation: fate-show 0.8s linear 0s 1 forwards;
+    
+}
+.shop-carousel-content-img {
+    width: 70%;
+    height: 400px;
+    margin: 0 auto;
+}
+.shop-carousel-content-img img {
+    width: 100%;
+    height: 100%;
+
+}
+.shop-cart-price {
+
+    font-size: 15px;
+}
+.shop-cart-description {
+    font-size: 25px;
+}
+
+.shop-add-bag-container a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background: var(--global-primary-gradient-color-90deg);
+}
+.shop-add-bag-container span{
+    font-size: 15px;
+}
+.sold-prev-btn ,.sold-next-btn {
+    font-size: 25px;
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+}
+.sold-prev-btn {
+    left: 0px;
+}
+.sold-next-btn {
+    right: 0px;
 }

@@ -1163,32 +1163,137 @@
                             <h1 class="font-semibold">Exclusive Hot Deal Ends Soon!</h1>
                             <p>Who are in extremely love with eco friendly system.</p>
                         </div>
-                        <div class="product-timer-main-container">
-                            <span id="timer">
-                                <span id="day" class="day">29</span>
+                        <div class=" my-4 product-timer-main-container my-4">
+                            <span class="timer">
+                                <span id="day" class="time">29</span>
                                 <span>Days</span>
                             </span>
-                            <span id="timer">
+                            <span class="timer">
                                 <span id="hour" class="time">22</span>
                                 <span>Hours</span>
                             </span>
-                            <span id="timer">
-                                <span id="hour" class="time">06</span>
+                            <span class="timer">
+                                <span id="minute" class="time">06</span>
                                 <span>Mins</span>
                             </span>
-                            <span id="timer">
-                                <span id="hour" class="time">00</span>
+                            <span class="timer">
+                                <span id="second" class="time">00</span>
                                 <span>Secs</span>
                             </span>
+
                         </div>
                         <div class="shop-now-btn-container">
                             <a href="#" class="uppercase">Shop Now</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 h-screen grid place-items-center"></div>
+                <div class="col-lg-6 col-md-12 mt-lg-0 mt-md-5 mt-sm-3 h-screen grid place-items-center">
+                    <div class="relative shop-carousel-container">
+                        <div class="shop-carousel-content-container">
+                            <div class="text-center shop-carousel-content active">
+                                <div class="shop-carousel-content-img">
+                                    <img src="./assets/img/banner-imgs/e-p1.png.webp" alt="">
+                                </div>
+                                <div class="px-5 my-4 text-center shop-cart-price ">
+                                    <span class=" inlin-block me-4 font-semibold">$150.00</span><span class="font-semibold text-muted line-through">$210.00</span>
+                                </div>
+                                <div class="px-5 my-4 text-center shop-cart-description">
+                                    <h1 class="uppercase font-semibold">addidas new hammer sole for sport person</h1>
+                                </div>
+                                <div class=" text-center shop-add-bag-container">
+                                    <a href="#"><i class="fas fa-shopping-cart"></i></a><span class="uppercase">Add To Bag</span>
+                                </div>
+                            </div>
+                            <div class="text-center shop-carousel-content">
+                                <div class="shop-carousel-content-img">
+                                    <img src="./assets/img/product-imgs/cp1.jpg" alt="">
+                                </div>
+                                <div class="px-5 my-4 text-center shop-cart-price ">
+                                    <span class=" inlin-block me-4 font-semibold">$150.00</span><span class="font-semibold text-muted line-through">$210.00</span>
+                                </div>
+                                <div class="px-5 my-4 text-center shop-cart-description">
+                                    <h1 class="uppercase font-semibold">addidas new hammer sole for sport person</h1>
+                                </div>
+                                <div class=" text-center shop-add-bag-container">
+                                    <a href="#"><i class="fas fa-shopping-cart"></i></a><span class="uppercase">Add To Bag</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="sold-prev-btn" class="sold-prev-btn"> <i class="fas fa-arrow-left"></i></button>
+                        <button type="button" id="sold-next-btn" class="sold-next-btn"> <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
+        <script>
+
+            let days = 30 ,
+                hours = 24 ,
+                minutes = 60 ,
+                seconds = 60 ;
+
+            // let getday = new Date().getMonth()
+            // console.log(getday)
+
+                let showtime = setInterval(showTimer,1000)
+                function showTimer(){
+                    seconds--;
+                    if(seconds == 0) {
+                        seconds = 60 ;
+                        minutes--;
+                        if(minutes == 0){
+                            minutes = 60 ;
+                            hours--;
+                            if(hours == 0) {
+                                hours = 24;
+                                days--;
+                                if(days == 0 ){
+                                    clearInterval(showtime)
+                                    document.querySelector(".product-timer-main-container").innerHTML =" ";
+                                    document.querySelector(".product-timer-main-container").innerHTML = `<h1 class= "w-full h-full text-center font-bold">Time Up</h1>`;
+                                }
+                            }
+                        }
+                        
+                    }
+                    document.getElementById("day").innerText = days;
+                    document.getElementById("hour").innerText = hours;
+                    document.getElementById("minute").innerText = minutes;
+                    document.getElementById("second").innerText = seconds;
+                }
+
+            let getshopcarouselcontents = document.querySelectorAll(".shop-carousel-content");
+            let getSoldPrevBtn = document.querySelector("#sold-prev-btn");
+            let getSoldNextBtn = document.querySelector("#sold-next-btn");
+
+            let getSoldShowIdx = 0;
+
+
+            function showShopCarousel(num){
+                getshopcarouselcontents.forEach(function(getshopcarouselcontent){
+                    getshopcarouselcontent.style.display = "none";
+                    // getshopcarouselcontent.classList.remove("active");
+                })
+                getshopcarouselcontents[num].style.display = "block";
+                getshopcarouselcontents[num].classList.add("active");
+            }
+            showShopCarousel(getSoldShowIdx);
+
+            getSoldPrevBtn.addEventListener("click",function(){
+                getSoldShowIdx--;
+                if(getSoldShowIdx < 0){
+                    getSoldShowIdx = getshopcarouselcontents.length-1;
+                }
+                showShopCarousel(getSoldShowIdx);
+            })
+            getSoldNextBtn.addEventListener("click",function(){
+                getSoldShowIdx++;
+                if(getSoldShowIdx > getshopcarouselcontents.length-1){
+                    getSoldShowIdx = 0;
+                }
+                showShopCarousel(getSoldShowIdx);
+            })
+        </script>
     </section>
     <!-- Product Timer Section Enc -->
     <!-- Boostrap 5 -->
