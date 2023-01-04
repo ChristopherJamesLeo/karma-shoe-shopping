@@ -13,6 +13,9 @@
     --font-primary-family : sans-serif;
 
 }
+body{
+    overflow-x: hidden;
+}
 .header {
     background: url("../assets/img/banner-imgs/banner-bg.jpg.webp");
     background-position: center;
@@ -58,14 +61,42 @@
     display: none;
 }
 .nav-bar .navbar-menu .nav-item {
-    padding: 10px 15px;
+    padding: 10px 20px;
 
 }
 .nav-bar .navbar-menu-slide .nav-item {
     padding: 15px 15px;
 }
+
+.nav-bar .navbar-menu .nav-item.active ,.nav-bar .navbar-menu-slide .nav-item.active, 
 .nav-bar .navbar-menu .nav-item:hover ,.nav-bar .navbar-menu-slide .nav-item:hover {
     color: var(--global-main-color);
+}
+.nav-bar .navbar-menu .nav-item:hover .navbar-menu-item,.nav-bar .navbar-menu-slide .nav-item:hover .navbar-menu-item{
+    display: block;
+    animation: fate-show 0.2s linear 0s 1 forwards;
+    
+}
+
+.navbar-menu .nav-item .navbar-menu-item  {
+    display: none;
+    top: 100%;
+    width: 200px;
+    padding-top: 23px;
+}
+.nav-bar .navbar-menu-slide .nav-item .navbar-menu-item {
+    display: none;
+}
+.navbar-menu .nav-item .navbar-menu-item .navbar-item ,.nav-bar .navbar-menu-slide .nav-item .navbar-menu-item .navbar-item{
+    padding: 13px 20px;
+    border-bottom: 1px solid #f3f3f3;
+}
+.navbar-menu .nav-item .navbar-menu-item .navbar-item:last-child ,.nav-bar .navbar-menu-slide .nav-item .navbar-menu-item .navbar-item:last-child  {
+    border: none;
+}
+.navbar-menu .nav-item .navbar-menu-item .navbar-item:hover,.nav-bar .navbar-menu-slide .nav-item .navbar-menu-item .navbar-item:hover{
+    color: #fff;
+    background-color: var(--global-main-color);
 }
 .slide-btn-container {
     display: none;
@@ -635,4 +666,27 @@
     height: 100%;
     background:var(--global-primary-gradient-color-90deg);
     color: var(--global-white-color);
+}
+
+/*---------------- ****secondary-pages****** ---------------*/
+
+.secondary-header {
+    height: 60vh;
+    background-size: 120%;
+}
+
+.secodary-banner-section .banner-bager a,.secodary-banner-section .banner-bager span {
+    display: inline-block;
+    color: var(--global-white-color);
+    margin-right: 20px;
+    font-size: 13px;
+}
+
+.secodary-banner-section .secondary-ban h1{
+    font-size: 35px;
+}
+
+.secodary-banner-section .secondary-ban{
+    padding-top: 7%;
+    padding-left: 15%;
 }
