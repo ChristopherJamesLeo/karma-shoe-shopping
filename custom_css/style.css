@@ -8,6 +8,7 @@
     --global-secondary-color : #777777;
     --global-white-color : #fff;
     --global-secondary-main-color : #828bb2;
+    --global-secondary-background-color: #e8f0f2;
     --global-primary-gradient-color-90deg : linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
     --global-primary-gradient-color-270deg : linear-gradient(270deg, #ffba00 0%, #ff6c00 100%);
     --font-primary-family : sans-serif;
@@ -689,4 +690,71 @@ body{
 .secodary-banner-section .secondary-ban{
     padding-top: 7%;
     padding-left: 15%;
+}
+
+
+/* product-detail */
+.description-header {
+    background-color: var(--global-secondary-background-color);
+    padding: 10px 0px;
+}
+.description-header .description-btn {
+    background-color: var(--global-white-color);
+    color: #000;
+    font-size: 14px;
+    
+    user-select: none;
+
+    transition: all 0.3s ease 0s;
+}
+.description-header .description-btn.active {
+    background: var(--global-primary-gradient-color-90deg);
+    color: var(--global-white-color);
+}
+.description-body-details {
+    animation: fate-show 0.3s linear 0s 1 forwards;
+}
+.product-detail-container form .quantity:focus {
+    outline: none;
+    
+}
+.com-reply-btn-container a:hover {
+    background: var(--global-primary-gradient-color-270deg) !important;
+    border: none;
+}
+
+.comments-right-side form .form-group button{
+    font-size: 18px;
+    color: var(--global-white-color);
+    background: var(--global-main-color) !important;
+    position: relative;
+    overflow: hidden;
+}
+.comments-right-side form .form-group input,.comments-right-side form .form-group textarea {
+    font-size: 13px;
+    padding-left: 20px;
+}
+.comments-right-side form .form-group button::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(30deg) translateY(230%);
+    /* transform: ; */
+    transition: all 0.2s ease 0s;
+}
+
+.comments-right-side form .form-group button:hover::before{
+    transform: rotate(45deg) translateY(-200%);
+}
+
+.review-left-side .overall {
+    background-color: var(--global-secondary-background-color);
+}
+
+.review-left-side .overall h1 {
+    color: var(--global-main-color);
 }
