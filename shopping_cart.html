@@ -132,6 +132,158 @@
         </section>
     </header>
     <!-- Header End -->
+    <!-- shopping cart body -start -->
+    <section class="shopping_cart_section">
+        <div class="shopping_cart-container">
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="font-semibold text-center">
+                            <th class="">Product</th>
+                            <th></th>
+                            <th>Price</th>
+                            <th class=" w-40">Quantity</th>
+                            <th class="text-center w-72">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-black">
+                            <td class="">
+                                <div class="flex justify-start items-center">
+                                    <div class="w-40 h-36 p-2 me-3 cart-img-product-title-container">
+                                        <div class="w-full h-full cart-img-container">
+                                            <img src="./assets/img/product-imgs/p4.jpg.webp" class="img-thumbnail w-full h-full" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="font-semibold">
+                                <div class="w-full h-36 flex justify-start items-center">
+                                    <span class="block text-muted font-semibold">Minimalistic shop for multipurpose use</span>
+                                </div>
+                            </td>
+                            <td class="font-semibold">
+                                <div class="w-full h-36 flex justify-center items-center">
+                                    <span class="block text-muted font-semibold">$360.00</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="w-full h-36 flex justify-center items-center">
+                                    <input type="number" name="quantity" id="quantity" value="2" class="w-16 h-16 p-3 outline-none border">
+                                </div>
+                            </td>
+                            <td class="font-semibold text-end">
+                                <div class="w-full h-36 flex justify-center items-center">
+                                    <span>$360.00</span>
+                                </div>
+                            </td>
+                        </tr>                        
+                    
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-end">
+                                <a href="#" class="btn text-black uppercase font-semibold update-cart-btn">update cart</a>
+                            </td>
+                            <td></td>
+                            <td class="p-0 m-0 ">
+                                <input type="text" name="coupon-code" id="coupon-code" class=" border w-full cupon-code-input" placeholder="Coupon Code">
+                            </td>
+                            <td class="p-0 m-0 ">
+                                <a href="#" class="text-white btn uppercase font-semibold rounded-0 coupon-apply-btn w-full">apply</a>
+                            </td>
+                            <td class="p-0 m-0 text-end">
+                                <a href="#" class="text-black btn uppercase font-semibold rounded-0 coupon-close-btn w-full">close coupon</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="font-semibold text-black ">Subtatal</td>
+                            <td class="text-center font-semibold">
+                                <span id="cart-subtotal">$2160.00</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td></td> -->
+                            <td class="text-center font-normal" colspan="2">
+                                <form action="" class="w-full">
+                                    <div class="row justify-between w-full">
+                                        <div class="col-4 flex justify-start items-start">
+                                            <span id="total-price">	Shipping</span>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="input-group justify-end my-2">
+                                                <label for="" class="text-muted">Flat Rate: $5.00</label>
+                                                <input type="radio" name="ship-type" value="rate_5" id="ship-type" class="ms-3">
+                                            </div>
+                                            <div class="input-group justify-end my-2">
+                                                <label for="" class="text-muted">Free Shipping</label>
+                                                <input type="radio" name="ship-type" value="free-shipping" id="ship-type" class="ms-3">
+                                            </div>
+                                            <div class="input-group justify-end my-2">
+                                                <label for="" class="text-muted">Flat Rate: $10.00</label>
+                                                <input type="radio" name="ship-type" value="rate_10" id="ship-type" class="ms-3">
+                                            </div>
+                                            <div class="input-group justify-end my-2">
+                                                <label for="" class="text-muted">Local Delivery: $2.00</label>
+                                                <input type="radio" name="ship-type" value="local-2" id="ship-type" class="ms-3">
+                                            </div>
+                                            <div class="input-group justify-end my-2">
+                                                <label for="" class="text-black">Calculate Shipping </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 cart-select-box my-3">
+                                            <div class="form-group">
+                                                <select name="" id="" class="form-select">
+                                                    <option value="bgl" selected >Bangalash</option>
+                                                    <option value="myn">Myanmar</option>
+                                                    <option value="sgn">Singapore</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 cart-select-box my-3">
+                                            <div class="form-group">
+                                                <select name="" id="" class="form-select">
+                                                    <option value="st1" selected >Select a state</option>
+                                                    <option value="st1">State 1</option>
+                                                    <option value="st2">State 2</option>
+                                                    <option value="st3">State 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 cart-select-box my-3">
+                                            <div class="form-group">
+                                                <input type="text" name="postalcode" id="postalcode" class="form-control rounded-0 cart-postal-box" placeholder="Postal Code">
+                                            </div>
+                                        </div>    
+                                        <div class="col-12 update-btn my-3">
+                                            <div class="form-group row justify-end">
+                                                <button type="submit" class="col-6 me-2 btn py-2 px4 text-black  font-semibold uppercase">Update details</button>
+                                            </div>
+                                        </div>                                                                      
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="row justify-end cart-submit-btn-group">
+                    <div class="btn-group col-6 ">
+                        <a href="#" class="btn py-2 px-5 rounded-0 font-semibold uppercase ">Continue shopping</a>
+                        <a href="#" class="btn py-2 px-5 rounded-0 font-semibold uppercase ">PROCEED TO CHECKOUT</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+        <!-- shopping cart body -end -->
     <!-- Week product show section Start -->
     <section class="week-product-show-section">
         <div class="week-product-show-section-container">
