@@ -926,3 +926,18 @@ body{
 .cart-submit-btn-group a:nth-child(2):hover::before{
     transform: rotate(45deg) translateY(-280%);
 }
+
+/* confirmation-section Start */
+.confirmation-section {
+    padding: 100px;
+}
+.confirmation-order-detail {
+    background-color: var(--global-secondary-background-color);
+}
+.confirmation-table table tr {
+    height: 40px;
+}
+.confirmation-order-detail table tr{
+    font-size: 15px;
+    height: 50px;
+}

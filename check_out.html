@@ -298,41 +298,68 @@
                                     <tr class="text-light w-full p-2 flex justify-between block">
                                         <td class="text-muted">Product</td>
                                         <td></td>
+                                        <td></td>
                                         <td class="text-muted">Total</td>
                                     </tr>
                                     <tr class="text-light w-full p-2 flex justify-between block">
                                         <td class="text-muted">Fresh Blackberry </td>
-                                        <td class="text-dark">x 02</td>
-                                        <td class="text-muted">$720.00</td>
+                                        <td class="d-none price">180</td>
+                                        <td class="text-dark ">x<span class="product-quantity">2</span></td>
+                                        <td class="text-muted price-total">$720.00</td>
                                     </tr>
                                     <tr class="text-light w-full p-2 flex justify-between block">
                                         <td class="text-muted">Fresh Tomatoes</td>
-                                        <td class="text-dark">x 02</td>
-                                        <td class="text-muted">$720.00</td>
+                                        <td class="d-none price">180</td>
+                                        <td class="text-dark ">x<span class="product-quantity">3</span></td>
+                                        <td class="text-muted price-total">$720.00</td>
                                     </tr>
                                     <tr class="text-light w-full p-2 flex justify-between block">
                                         <td class="text-muted">Fresh Brocoli </td>
-                                        <td class="text-dark">x 02</td>
-                                        <td class="text-muted">$720.00</td>
+                                        <td class="d-none price">200</td>
+                                        <td class="text-dark ">x<span class="product-quantity">4</span></td>
+                                        <td class="text-muted price-total">$720.00</td>
                                     </tr>
                                     <tfoot class="font-semibold">
                                         <tr class="text-light w-full p-2 flex justify-between block">
                                             <td class="text-dark">SUBTOTAL </td>
                                             <td></td>
-                                            <td class="text-muted">$2160.00</td>
+                                            <td class="text-muted subtitle">$2160.00</td>
                                         </tr>
                                         <tr class="text-light w-full p-2 flex justify-between block">
                                             <td class="text-dark">SHIPPING </td>
                                             <td></td>
-                                            <td class="text-muted">Flat Rate: $50.00</td>
+                                            <td class="text-muted">Flat Rate: $ <span id="shipping-price">50</span> .00</td>
                                         </tr>
                                         <tr class="text-light w-full p-2 flex justify-between block">
                                             <td class="text-dark">TOTAL </td>
                                             <td></td>
-                                            <td class="text-dark">$2210.00</td>
+                                            <td class="text-dark cart-total">$2210.00</td>
                                         </tr>
                                     </tfoot>
                                 </table>
+                        <script>
+                            let getPrductPrices =Array.from(document.querySelectorAll(".price")) ;
+                            let getQuantitys = Array.from(document.querySelectorAll(".product-quantity")) ;
+                            let getTotalPrices = Array.from(document.querySelectorAll(".price-total")) ;
+                            let getSubTotal = document.querySelector(".subtitle");
+                            let getShippingPrice = +document.querySelector("#shipping-price").innerText;
+
+                            let getCartTotal = document.querySelector(".cart-total");
+
+                            
+                            let subTotal = 0 ;
+                            for(let i = 0 ; i < getPrductPrices.length ; i++){
+                                let getPrice = +getPrductPrices[i].innerText;
+                                let getQuantity = +getQuantitys[i].innerText ;
+                                let totalPrice = getPrice*getQuantity ;
+                                getTotalPrices[i].innerText = totalPrice ;
+                                
+                                subTotal += totalPrice;
+                                                        
+                            }
+                            getSubTotal.innerText = `$${subTotal}.00`;
+                            getCartTotal.innerText =  `$${getShippingPrice+subTotal}.00`;
+                        </script>
                                 <div class="form-group my-3">
                                     <input type="radio" name="payment" value="cash" id="cash" class="form-check-input">
                                     <label for="cash" class="uppercase">Check payments</label>

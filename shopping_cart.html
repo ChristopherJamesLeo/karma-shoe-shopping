@@ -164,20 +164,51 @@
                             </td>
                             <td class="font-semibold">
                                 <div class="w-full h-36 flex justify-center items-center">
-                                    <span class="block text-muted font-semibold">$360.00</span>
+                                    <span  class="block text-muted font-semibold"> $<span class="product-price">360</span>.00</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="w-full h-36 flex justify-center items-center">
-                                    <input type="number" name="quantity" id="quantity" value="2" class="w-16 h-16 p-3 outline-none border">
+                                    <input type="number" name="quantity" id="quantity" value="2" class="w-16 h-16 p-3 outline-none border quantity">
                                 </div>
                             </td>
                             <td class="font-semibold text-end">
                                 <div class="w-full h-36 flex justify-center items-center">
-                                    <span>$360.00</span>
+                                    <span>$<span class="total-price">360</span> .00</span>
                                 </div>
                             </td>
-                        </tr>                        
+                        </tr>    
+                        <tr class="text-black">
+                            <td class="">
+                                <div class="flex justify-start items-center">
+                                    <div class="w-40 h-36 p-2 me-3 cart-img-product-title-container">
+                                        <div class="w-full h-full cart-img-container">
+                                            <img src="./assets/img/product-imgs/p4.jpg.webp" class="img-thumbnail w-full h-full" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="font-semibold">
+                                <div class="w-full h-36 flex justify-start items-center">
+                                    <span class="block text-muted font-semibold">Minimalistic shop for multipurpose use</span>
+                                </div>
+                            </td>
+                            <td class="font-semibold">
+                                <div class="w-full h-36 flex justify-center items-center">
+                                    <span  class="block text-muted font-semibold"> $<span class="product-price">120</span>.00</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="w-full h-36 flex justify-center items-center">
+                                    <input type="number" name="quantity" id="quantity" value="4" class="w-16 h-16 p-3 outline-none border quantity">
+                                </div>
+                            </td>
+                            <td class="font-semibold text-end">
+                                <div class="w-full h-36 flex justify-center items-center">
+                                    <span>$<span class="total-price">360</span> .00</span>
+                                </div>
+                            </td>
+                        </tr>                                              
                     
                     </tbody>
                     <tfoot>
@@ -205,6 +236,24 @@
                                 <span id="cart-subtotal">$2160.00</span>
                             </td>
                         </tr>
+                        <script>
+                            let getPrductPrices =Array.from(document.querySelectorAll(".product-price")) ;
+                            let getQuantitys = Array.from(document.querySelectorAll(".quantity")) ;
+                            let getTotalPrices = Array.from(document.querySelectorAll(".total-price")) ;
+                            let getSubTotal = document.querySelector("#cart-subtotal");
+                            
+                            let subTotal = 0 ;
+                            for(let i = 0 ; i < getPrductPrices.length ; i++){
+                                let getPrice = +getPrductPrices[i].innerText;
+                                let getQuantity = getQuantitys[i].value ;
+                                let totalPrice = getPrice*getQuantity ;
+                                getTotalPrices[i].innerText = totalPrice ;
+                                
+                                subTotal += totalPrice;
+                                                        
+                            }
+                            getSubTotal.innerText = `$${subTotal}.00`;
+                        </script>
                         <tr>
                             <td></td>
                             <td></td>
