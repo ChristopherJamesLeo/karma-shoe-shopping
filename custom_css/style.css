@@ -941,3 +941,162 @@ body{
     font-size: 15px;
     height: 50px;
 }
+
+/* log_in-section start */
+.log_in-section {
+    padding: 100px;
+}
+.log_in-section-container .log-in-section-left{
+    background: linear-gradient(
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.6)
+    ),url("../assets/img/background-imgs/login.jpg.webp");
+    padding: 0px 100px;
+}
+.log_in-section-container .log-in-section-left .left-contents-container .login-left-content{
+    font-size: 15px;
+}
+
+.log_in-section-container .log-in-section-left .left-contents-container .log-in-left-create-account {
+
+    padding: 10px 30px;
+}
+.log_in-section-container .log-in-section-left .left-contents-container .log-in-left-create-account a{
+    display: inline-block;
+    color: var(--global-white-color);
+    background: var(--global-primary-gradient-color-90deg);
+    padding: 10px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.log_in-section-container .log-in-section-left .left-contents-container .log-in-left-create-account a::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(30deg) translateY(230%);
+    /* transform: ; */
+    transition: all 0.2s ease 0s;
+}
+.log_in-section-container .log-in-section-left .left-contents-container .log-in-left-create-account a:hover::before{
+    transform: rotate(45deg) translateY(-280%);
+}
+.log_in-section-container .log-in-section-right {
+    padding: 130px;
+}
+.log_in-section-container .log-in-section-right .form-group input:focus {
+    outline: none;
+}
+.log-in-section-right form button {
+    background: var(--global-primary-gradient-color-90deg);
+    color: var(--global-white-color);
+    position: relative;
+    overflow: hidden;
+}
+.log-in-section-right form button:hover{
+    color: var(--global-white-color);
+}
+.log-in-section-right form button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(30deg) translateY(500%);
+    /* transform: ; */
+    transition: all 0.2s ease 0s;
+}
+.log-in-section-right form button:hover::before {
+    transform: rotate(45deg) translateY(-700%);
+}
+
+/* tracking-section */
+.tracking-section {
+    padding: 100px;
+}
+.tracking-section .tracking-section-container .tracking-content{
+    width: 80%;
+}
+.tracking-section .tracking-section-container .tracking-content p{
+    font-size: 15px;
+}
+.tracking-section .tracking-items-data form .form-group input {
+    padding: 5px 10px;
+}
+.tracking-section .tracking-items-data form .form-group input::placeholder {
+    font-weight: 400;
+}
+.tracking-section .tracking-items-data form .form-group button {
+    padding: 10px 30px;
+    color: var(--global-white-color);
+    background: var(--global-primary-gradient-color-90deg);
+    position: relative;
+    overflow: hidden;
+}
+.tracking-section .tracking-items-data form .form-group button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(30deg) translateY(500%);
+    /* transform: ; */
+    transition: all 0.4s ease 0s;
+}
+.tracking-section .tracking-items-data form .form-group button:hover::before{
+    transform: rotate(45deg) translateY(-700%);
+}
+
+/* contact-section Start */
+.contact-section {
+    padding: 100px;
+}
+
+.contact-section-container .contact-google-map-container {
+    height: 80vh;
+}
+
+.contact-contents-container .contact-detail-group .contact-icon{
+    font-size: 20px;
+    color: var(--global-main-color);
+}
+.contact-contents-container .contact-detail-group .contact-contact h1 {
+    font-size: 18px;
+}
+.contact-contents-container form .form-group input,.contact-contents-container form .form-group textarea {
+    padding: 7px 20px;
+    font-size: 14px;
+}
+
+.contact-contents-container form .form-group input:focus,.contact-contents-container form .form-group textarea:focus {
+    outline: none;
+}
+.contact-contents-container form .form-group button {
+    padding: 10px 30px;
+    background-color: var(--global-main-color);
+    color: var(--global-white-color);
+    overflow: hidden;
+}
+.contact-contents-container form .form-group button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(30deg) translateY(500%);
+    /* transform: ; */
+    transition: all 0.4s ease 0s;
+}
+.contact-contents-container form .form-group button:hover::before{
+    transform: rotate(45deg) translateY(-700%);
+} 
