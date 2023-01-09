@@ -1215,3 +1215,38 @@ body{
     background-color: var(--global-main-color);
     color: var(--global-white-color);
 }
+/* blog detail start */
+.blog-detail-reply .reply-form {
+    background-color: #fafafa;
+    padding: 70px;
+}
+.blog-detail-reply .reply-form form .form-group input, .blog-detail-reply .reply-form form .form-group textarea{
+    padding: 10px 14px;
+    font-size: 13px;
+}
+.blog-detail-reply .reply-form form .form-group input:focus, .blog-detail-reply .reply-form form .form-group textarea:focus {
+    outline: none;
+}
+.blog-detail-reply .reply-form form .form-group button {
+    background: var(--global-primary-gradient-color-90deg);
+}
+
+/* Shop Category */
+.product-section .product-search-box-container input{
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid var(--global-main-color);
+    color: var(--global-primary-color);
+}
+.product-section .product-search-box-container input:focus {
+    outline: none;
+}
+.product-section .product-search-box-container i {
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--global-primary-color);
+}
+.product-section .product-search-box-container input:focus ~ i {
+    color: var(--global-main-color);
+}
