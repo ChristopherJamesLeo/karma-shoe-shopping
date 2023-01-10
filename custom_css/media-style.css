@@ -19,3 +19,10 @@
     }
 
 }
+@media (max-width: 600px){
+
+    .checkout-section,.confirmation-section ,.log_in-section,.contact-section{
+        padding: 30px;
+    }
+
+}

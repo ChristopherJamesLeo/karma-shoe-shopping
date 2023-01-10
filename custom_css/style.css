@@ -99,6 +99,10 @@ body{
     color: #fff;
     background-color: var(--global-main-color);
 }
+.navbar-menu .nav-item .navbar-menu-item .navbar-item.active,.nav-bar .navbar-menu-slide .nav-item .navbar-menu-item .navbar-item.active{
+    color: #fff;
+    background-color: var(--global-main-color);
+}
 .slide-btn-container {
     display: none;
 }
@@ -1231,7 +1235,7 @@ body{
     background: var(--global-primary-gradient-color-90deg);
 }
 
-/* Shop Category */
+/* Shop Category start*/
 .product-section .product-search-box-container input{
     padding: 10px 20px;
     text-align: center;
@@ -1249,4 +1253,38 @@ body{
 }
 .product-section .product-search-box-container input:focus ~ i {
     color: var(--global-main-color);
+}
+
+/* register-section */
+
+.register-section-right .register-right-container{
+    background: linear-gradient(
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.6)
+    ),url("../assets/img/background-imgs/login.jpg.webp");
+    padding: 0px 100px;
+    height: 100%;
+}
+.register-section-container .register-left-container .register-btn-container button {
+    background: var(--global-primary-gradient-color-90deg);
+    font-weight: 600;
+    color: var(--global-white-color);
+    overflow: hidden;
+    transition: all 0.4s ease 0s;
+}
+
+.register-btn-container button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: rotate(30deg) translateY(500%);
+    /* transform: ; */
+    transition: all 0.4s ease 0s;
+}
+.register-btn-container button:hover::before {
+    transform: rotate(45deg) translateY(-700%);
 }
