@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Order Tracking</title>
     <link rel="shortcut icon" href="./assets/img/background-imgs/fav-logo.png" type="image/x-icon">
 
     <!-- bootstrap css 1 js 1 -->
@@ -23,7 +23,7 @@
         <nav id="navbar" class=" nav-bar shadow-md">
             <div class="row justify-content-between items-center">
                 <div class="col-6">
-                    <a href="./index.html">
+                    <a href="./index.php">
                         <img src="./assets/img/background-imgs/logo.png.webp" alt="">
                     </a>
                 </div>
@@ -37,64 +37,64 @@
     
                     </div>
                     <ul class="uppercase navbar-menu">
-                        <li class="nav-item "><a href="./index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item relative "><a href="./shop_category.html" class="nav-link">Shop</a>
+                        <li class="nav-item "><a href="./index.php" class="nav-link">Home</a></li>
+                        <li class="nav-item relative "><a href="./shop_category.php" class="nav-link">Shop</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./shop_category.html" id="" class="nav-link">shop category</a></li>
-                                <li class="navbar-item"><a href="./product_detail.html" id="" class="nav-link">Product Details</a></li>
-                                <li class="navbar-item"><a href="./check_out.html" id="" class="nav-link">Product Checkout</a></li>
-                                <li class="navbar-item"><a href="./shopping_cart.html" id="" class="nav-link">shopping cart</a></li>
-                                <li class="navbar-item"><a href="./confirmation.html" id="" class="nav-link">confimation</a></li>
+                                <li class="navbar-item"><a href="./shop_category.php" id="" class="nav-link">shop category</a></li>
+                                <li class="navbar-item"><a href="./product_detail.php" id="" class="nav-link">Product Details</a></li>
+                                <li class="navbar-item"><a href="./check_out.php" id="" class="nav-link">Product Checkout</a></li>
+                                <li class="navbar-item"><a href="./shopping_cart.php" id="" class="nav-link">shopping cart</a></li>
+                                <li class="navbar-item"><a href="./confirmation.php" id="" class="nav-link">confimation</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item relative "><a href="./blog.html" class="nav-link">Blog</a>
+                        <li class="nav-item relative "><a href="./blog.php" class="nav-link">Blog</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./blog.html" id="" class="nav-link">blog</a></li>
-                                <li class="navbar-item"><a href="./blog_detail.html" id="" class="nav-link">blog Details</a></li>
+                                <li class="navbar-item"><a href="./blog.php" id="" class="nav-link">blog</a></li>
+                                <li class="navbar-item"><a href="./blog_detail.php" id="" class="nav-link">blog Details</a></li>
                                 
                             </ul>
                         </li>
-                        <li class="nav-item relative"><a href="#" class="nav-link">Pages</a>
+                        <li class="nav-item relative active"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./Login.html" id="" class="nav-link">login</a></li>
-                                <li class="navbar-item"><a href="./tracking.html" id="" class="nav-link">tracking</a></li>
-                                <li class="navbar-item"><a href="./register.html" id="" class="nav-link">register</a></li>
+                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                                <li class="navbar-item active"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
+                                <li class="navbar-item"><a href="./register.php" id="" class="nav-link">Register</a></li>
                                 
                             </ul>
                         </li>
-                        <li class="nav-item active"><a href="./contact_us.html" class="nav-link">Content</a></li>
+                        <li class="nav-item"><a href="./contact_us.php" class="nav-link">Content</a></li>
                         <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                         <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-12 flex justify-content-start">
                     <ul class="uppercase navbar-menu-slide">
-                        <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="./index.php" class="nav-link">Home</a></li>
                         <li class="nav-item "><a href="#" class="nav-link">Shop</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./shop_category.html" id="" class="nav-link">shop category</a></li>
-                                <li class="navbar-item"><a href="./product_detail.html" id="" class="nav-link">Product Details</a></li>
-                                <li class="navbar-item"><a href="./check_out.html" id="" class="nav-link">Product Checkout</a></li>
-                                <li class="navbar-item"><a href="./shopping_cart.html" id="" class="nav-link">shopping cart</a></li>
-                                <li class="navbar-item"><a href="./confirmation.html" id="" class="nav-link">confimation</a></li>
+                                <li class="navbar-item"><a href="./shop_category.php" id="" class="nav-link">shop category</a></li>
+                                <li class="navbar-item"><a href="./product_detail.php" id="" class="nav-link">Product Details</a></li>
+                                <li class="navbar-item"><a href="./check_out.php" id="" class="nav-link">Product Checkout</a></li>
+                                <li class="navbar-item"><a href="./shopping_cart.php" id="" class="nav-link">shopping cart</a></li>
+                                <li class="navbar-item"><a href="./confirmation.php" id="" class="nav-link">confimation</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Blog</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./blog.html" id="" class="nav-link">blog</a></li>
-                                <li class="navbar-item"><a href="./blog_detail.html" id="" class="nav-link">blog Details</a></li>
+                                <li class="navbar-item"><a href="./blog.php" id="" class="nav-link">blog</a></li>
+                                <li class="navbar-item"><a href="./blog_detail.php" id="" class="nav-link">blog Details</a></li>
                                 
                             </ul>
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pages</a>
+                        <li class="nav-item active"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./Login.html" id="" class="nav-link">login</a></li>
-                                <li class="navbar-item"><a href="./tracking.html" id="" class="nav-link">tracking</a></li>
-                                <li class="navbar-item"><a href="./register.html" id="" class="nav-link">register</a></li>
+                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                                <li class="navbar-item active"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
+                                <li class="navbar-item "><a href="./register.php" id="" class="nav-link">Register</a></li>
                                 
                             </ul>
                         </li>
-                        <li class="nav-item active"><a href="./contact_us.html" class="nav-link">Content</a></li>
+                        <li class="nav-item"><a href="./contact_us.php" class="nav-link">Content</a></li>
                         <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                         <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
                     </ul>
@@ -123,85 +123,42 @@
         <!-- navbar end -->
         <section class="w-full row justify-end secodary-banner-section">
             <div class="col-6 uppercase text-white text-start secondary-ban">
-                <h1 class="font-bold">Contact Us</h1>
+                <h1 class="font-bold">Order Tracking</h1>
                 <div class="uppercase mt-3 banner-bager">
-                    <a href="./index.html">home</a><span><i class="fas fa-arrow-right"></i></span><a href="./contact_us.html">Contact</a>
+                    <a href="./index.html">home</a><span><i class="fas fa-arrow-right"></i></span><a href="./shop_category.html">Fashion Category</a>
                 </div>
 
             </div>
         </section>
     </header>
     <!-- Header End -->
-    <!-- content section start -->
-    <section class="contact-section">
-        <div class="contact-section-container">
-            <div class="w-full contact-google-map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48384.58035319284!2d-74.111944!3d40.717218!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c253925a4b77d7%3A0x3d7e2fb73cb527a8!2sFlaming%20Grill%20%26%20Supreme%20Buffet!5e0!3m2!1sen!2sus!4v1673143530521!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- tracking section body start -->
+    <section class="tracking-section">
+        <div class="tracking-section-container">
+            <div class="tracking-content">
+                <p class="">
+                    To track your order please enter your Order ID in the box below and press the "Track" button. This was given to you on your receipt and in the confirmation email you should have received.
+                </p>
             </div>
-            <div class="contact-contents-container my-5">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-sm-12 p-2">
-                        <div class="contact-detail-group">
-                            <div class="flex justify-start items-center contact-detail">
-                                <div class="contact-icon p-4">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <div class="contact-contact">
-                                    <h1 class="font-bold">California, United States</h1>
-                                    <p class="font-normal">Santa monica bullevard</p>
-                                </div>
-                            </div>
-                            <div class="flex justify-start items-center contact-detail">
-                                <div class="contact-icon p-4">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <div class="contact-contact">
-                                    <h1 class="h5 font-bold">California, United States</h1>
-                                    <p class="font-normal">Santa monica bullevard</p>
-                                </div>
-                            </div>
-                            <div class="flex justify-start items-center contact-detail">
-                                <div class="contact-icon p-4">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <div class="contact-contact">
-                                    <h1 class="h5 font-bold">California, United States</h1>
-                                    <p class="font-normal">Santa monica bullevard</p>
-                                </div>
-                            </div>
+            <div class="row tracking-items-data">
+                <div class="col-6 col-md-12">
+                    <form action="">
+                        <div class="form-group my-3">
+                            <input type="text" name="orderId" id="orderId" class="rounded-0 border text-muted w-full" placeholder="Order Id">
                         </div>
-                    </div>
-                    <div class="col-lg-8 col-md-6 col-sm-12 p-2">
-                        <form action="" method="post" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="my-3 form-group">
-                                        <input type="text" name="name" id="name" class="rounded-0 border w-full" placeholder="Enter Your Name">
-                                    </div>
-                                    <div class="my-3 form-group">
-                                        <input type="email" name="email" id="email" class="rounded-0 border w-full" placeholder="Enter Your Email">
-                                    </div>
-                                    <div class="my-3 form-group">
-                                        <input type="text" name="subject" id="subject" class="rounded-0 border w-full" placeholder="Enter Your Subject">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="my-3 form-group">
-                                        <textarea name="" id="" cols="30" rows="6" class="w-full rounded-0 border" placeholder="Enter Message"></textarea>
-                                    </div>
-                                    <div class="form-group flex justify-end">
-                                        <button type="submit" class="btn uppercase font-semibold rounded-0 relative" >Send message</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
+                        <div class="form-group my-3">
+                            <input type="email" name="billingEmail" id="billingEmail" class="rounded-0 border text-muted w-full" placeholder="Billing Email Address">
+                        </div>
+                        <div class="form-group my-3">
+                            <button type="submit" class="uppercase font-semibold rounded-0">Track Order</button>
+                        </div>
+                    </form>
                 </div>
+
             </div>
         </div>
     </section>
-    <!-- content section End -->
+    <!-- tracking section body end -->
     <!-- footer start -->
     <footer>
         <div class="row footer-container">
