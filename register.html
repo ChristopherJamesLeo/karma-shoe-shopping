@@ -144,62 +144,72 @@
                             <h1 class="h5">Register</h1>
                         </div>
                         <hr>
-                        <form action="" class="mt-3 billing-create-form-container">
+                        <form action="" class="mt-3 billing-create-form-container" method="get" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 my-2 form-group">
-                                    <input type="text" name="firstname" id="firstname" class="form-control rounded-0" placeholder="First Name">
+                                    <input type="text" name="firstname" id="firstname" class="form-control rounded-0" placeholder="First Name" required>
                                 </div>
                                 <div class="col-lg-6 col-md-12 my-2  form-group">
-                                    <input type="text" name="lastname" id="lastname" class="form-control rounded-0" placeholder="Last Name">
+                                    <input type="text" name="lastname" id="lastname" class="form-control rounded-0" placeholder="Last Name"required >
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <input type="text" name="companyname" id="companyname" class="form-control rounded-0" placeholder="Company Name">
+                                    <input type="text" name="companyname" id="companyname" class="form-control rounded-0" placeholder="Company Name" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 my-2 form-group">
-                                    <input type="text" name="phonenumber" id="phonenumber" class="form-control rounded-0" placeholder="Phone Number">
+                                    <input type="text" name="phonenumber" id="phonenumber" class="form-control rounded-0" placeholder="Phone Number" required>
                                 </div>                                
                                 <div class="col-lg-6 col-md-12 my-2  form-group">
-                                    <input type="email" name="email" id="email" class="form-control rounded-0" placeholder="Email Address">
+                                    <input type="email" name="email" id="email" class="form-control rounded-0" placeholder="Email Address" required>
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <input type="password" name="password" id="password" class="form-control rounded-0" placeholder="Password">
+                                    <input type="password" name="password" id="password" class="form-control rounded-0" placeholder="Password" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <select name="" id="" class="form-select rounded-0">
+                                    <select name="" id="" class="form-select rounded-0" required>
                                         <option value="" selected disabled>Choose Your Country</option>
                                         <option value="my">Myanmar</option>
                                         <option value="sgn">Singapore</option>
                                         <option value="thi">Thailand</option>
                                     </select>
                                 </div>                                
-                            </div>     
+                            </div>    
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2  form-group">
+                                    <select name="" id="" class="form-select rounded-0" required>
+                                        <option value="" selected disabled>Role</option>
+                                        <option value="0">User</option>
+                                        <option value="1">Admin</option>
+                                    </select>
+                                </div>                                
+                            </div> 
+
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2 form-group">
-                                    <input type="text" name="address1" id="address1" class="form-control rounded-0" placeholder="Address 1">
+                                    <input type="text" name="address1" id="address1" class="form-control rounded-0" placeholder="Address 1" required>
                                 </div>
                             </div>     
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <input type="text" name="address2" id="address1" class="form-control rounded-0" placeholder="Address 2">
+                                    <input type="text" name="address2" id="address1" class="form-control rounded-0" placeholder="Address 2" required>
                                 </div>
                             </div>     
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <input type="text" name="township" id="township" class="form-control rounded-0" placeholder="Town / City">
+                                    <input type="text" name="township" id="township" class="form-control rounded-0" placeholder="Town / City" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <select name="" id="" class="form-select rounded-0">
+                                    <select name="" id="" class="form-select rounded-0" required>
                                         <option value="" selected disabled>District</option>
                                         <option value="d1">District 1</option>
                                         <option value="d2">District 2</option>
@@ -209,9 +219,14 @@
                             </div> 
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <input type="text" name="postcode" id="postcode" class="form-control rounded-0" placeholder="Postcode / ZIP">
+                                    <input type="text" name="postcode" id="postcode" class="form-control rounded-0" placeholder="Postcode / ZIP" required>
                                 </div>
                             </div>  
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2  form-group">
+                                    <input type="file" name="userimg" id="file" class="form-control rounded-0" placeholder="Image" required>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
                                     <input type="checkbox" name="createAccount" id="createAccount" class="form-check-input me-2" value="remember">
