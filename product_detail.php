@@ -136,15 +136,25 @@
     <!-- product detail start -->
     <section class="product-detail-section">
         <div class=" row product-detail-section-container">
+            <?php
+                include "./phpEngine/config.php";
+                if (isset($_REQUEST["id"])){
+                    $id = $_REQUEST["id"];
+                    $showSql = "SELECT * FROM products_list WHERE id = {$id}";
+                    $showResult = mysqli_query( $conn , $showSql);
+
+                    if(mysqli_num_rows($showResult) > 0){
+                        while ($showRow = mysqli_fetch_assoc($showResult)){
+            ?>
             <div class="col-lg-6 col-md-12 p-lg-5 p-md-3 p-sm-1 product-detail-left-container">
                 <div class="product-detail-img-container">
-                    <img src="./assets/img/banner-imgs/banner-img.png.webp" alt="" class="w-full h-full">
+                    <img src="./assets/img/product-imgs/<?php echo $showRow["p_img1"] ?>" alt="" class="w-full h-full">
                 </div>
             </div>
             <div class="col-lg-6 col-md-9 p-lg-5 p-md-3 p-sm-1 flex justify-start items-center font-semibold product-detail-right-container">
                 <div class="product-detail-container">
-                    <h1 class="h4">Faded SkyBlu Denim Jeans</h1>
-                    <span class="h3 font-extrabold">$149.99</span>
+                    <h1 class="h4"><?php echo $showRow["p_name"] ?></h1>
+                    <span class="h3 font-extrabold">$<?php echo $showRow["price"] ?>.99</span>
                     <table class="my-2">
                         <tr>
                             <td>Category </td>
@@ -159,10 +169,11 @@
                     <p class="text-muted mb-5">
                         Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that can make your interior look awesome, and at the same time give you the pleasant warm feeling during the winter.
                     </p>
-                    <form action="" class="product-submit">
+                    <form action="./phpEngine/add_cart.php" method="POST" class="product-submit">
+                        <input type="hidden" name="id" value="<?php echo $showRow["id"] ?>">
                         <div class="">
                             <label for="quantity">Quantity</label>
-                            <input type="number" name="quantity" id="quantity" class="py-1 px-2 w-16 border quantity">
+                            <input type="number" name="quantity" id="quantity" value="" class="py-1 px-2 w-16 border quantity" required>
                         </div>
                         <div class="form-group mt-3 flex justify-start items-center">
                             <button type="submit" class="btn px-5 py-2 font-semibold addCartBtn">Add to Cart</button>
@@ -184,44 +195,42 @@
                 <div class="col-12 p-lg-3 p-md-1 p-sm-1 description-body">
                     <div class="description-body-details description-container">
                         <p class="text-muted">
-                            Beryl Cook is one of Britain’s most talented and amusing artists .Beryl’s pictures feature women of all shapes and sizes enjoying themselves .Born between the two world wars, Beryl Cook eventually left Kendrick School in Reading at the age of 15, where she went to secretarial school and then into an insurance office. After moving to London and then Hampton, she eventually married her next door neighbour from Reading, John Cook. He was an officer in the Merchant Navy and after he left the sea in 1956, they bought a pub for a year before John took a job in Southern Rhodesia with a motor company. Beryl bought their young son a box of watercolours, and when showing him how to use it, she decided that she herself quite enjoyed painting. John subsequently bought her a child’s painting set for her birthday and it was with this that she produced her first significant work, a half-length portrait of a dark-skinned lady with a vacant expression and large drooping breasts. It was aptly named ‘Hangover’ by Beryl’s husband and
-
-                            It is often frustrating to attempt to plan meals that are designed for one. Despite this fact, we are seeing more and more recipe books and Internet websites that are dedicated to the act of cooking for one. Divorce and the death of spouses or grown children leaving for college are all reasons that someone accustomed to cooking for more than one would suddenly need to learn how to adjust all the cooking practices utilized before into a streamlined plan of cooking that is more efficient for one person creating less
+                        <?php echo $showRow["p_description"] ?>
                         </p>
                     </div>
                     <div class="description-body-details specification-container">
                         <table class="table table-striped table-hover w-full text-muted ">
                             <tr class="border-b ">
                                 <td>Width</td>
-                                <td>128mm</td>
+                                <td><?php echo $showRow["width"] ?>mm</td>
                             </tr>
                             <tr class="border-b ">
                                 <td>Height</td>
-                                <td>508mm</td>
+                                <td><?php echo $showRow["height"] ?>mm</td>
                             </tr>
                             <tr class="border-b ">
                                 <td>Depth</td>
-                                <td>85mm</td>
+                                <td><?php echo $showRow["depth"] ?>mm</td>
                             </tr>
                             <tr class="border-b ">
                                 <td>Weight</td>
-                                <td>52gm</td>
+                                <td><?php echo $showRow["weight"] ?>gm</td>
                             </tr>
                             <tr class="border-b ">
                                 <td>Quality checking</td>
-                                <td>yes</td>
+                                <td><?php echo $showRow["qc"] ?></td>
                             </tr>
                             <tr class="border-b ">
                                 <td>Freshness Duration</td>
-                                <td>03days</td>
+                                <td><?php echo $showRow["freshness_duration"] ?>days</td>
                             </tr>
                             <tr class="border-b ">
                                 <td>When packeting</td>
-                                <td>Without touch of hand</td>
+                                <td><?php echo $showRow["packeting"] ?></td>
                             </tr>
                             <tr class="border-b ">
                                 <td>Each Box contains</td>
-                                <td>60pcs</td>
+                                <td><?php echo $showRow["boxcontains"] ?>pcs</td>
                             </tr>                            
                         </table>
                     </div>
@@ -427,6 +436,12 @@
                     </div>
                 </div>
             </div>
+            <?php                
+                        }
+                    }
+                }
+            ?>
+
             <script>
                 let getDescriptionBtns = Array.from(document.querySelectorAll(".description-btn")) ;
                 let getDescriptionDetails =Array.from(document.querySelectorAll(".description-body-details")) ;
@@ -453,6 +468,97 @@
         </div>
     </section>
     <!-- product detail end  -->
+        <!-- Products Seciton Start -->
+        <section class="product-section">
+        <!-- search box start -->
+        <div class="relative py-4 border-b search-blog-container product-search-box-container">
+            <input type="text" name="search-blog" id="search-blog" class="rounded-full w-full search-blog" placeholder="Search Post">
+            <i class="fas fa-search absolute"></i>
+        </div> 
+        <!-- search box end -->
+            <div class="relative product-section-container">
+                <div class="show-products-container">
+                    <div class="row">
+                        <?php
+                            include "./phpEngine/config.php";
+                            $sql = "SELECT * FROM products_list";
+                            $result = mysqli_query( $conn , $sql );
+
+                            if(mysqli_num_rows($result) > 0){
+                                while($row = mysqli_fetch_assoc($result)){
+                        ?>            
+                                    <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
+                                    <div class="w-full product-items">
+                                        <div class="product-img-container">
+                                            <img src="./assets/img/product-imgs/<?php echo $row["p_img1"] ?>" alt="<?php echo $row["p_img1"] ?>">
+                                        </div>
+                                        <div class="uppercase font-semibold my-2 product-detail">
+                                            <p class="leading-tight"><?php echo $row["p_name"] ?></p>
+                                        </div>
+                                        <div class="price-container my-2">
+                                            <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
+                                        </div>
+                                        <div class="item-tools">
+                                            <ul class="flex item-tool-list">
+                                                <li class="relative flex item-tool-list-item">
+                                                    <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                                    <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                        <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="relative flex item-tool-list-item">
+                                                    <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
+                                                    <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                        <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="relative flex item-tool-list-item">
+                                                    <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
+                                                    <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                        <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
+                                                    </ul>
+                                                </li>   
+                                                <li class="relative flex item-tool-list-item">
+                                                    <a href="./product_detail.php?id=<?php echo $row['id'] ?>" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                                    <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                        <li class="item-show-detail"><span class="inlin-block">view more</span></li>
+                                                    </ul>
+        
+                                                </li>                                             
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php
+                                }
+                            }
+                        ?>                                                                       
+                    </div>
+                </div>
+            </div> 
+            <script>
+                let getFilterText = document.getElementById("search-blog");
+                let productContainers = document.querySelectorAll(".show-products-items-container");
+                let getProductTitles = document.querySelectorAll(".product-detail p");
+
+                getFilterText.addEventListener("keyup",function(){
+                    let getText = getFilterText.value.toLowerCase();
+                    let getTitle ;
+                    for(let i = 0 ; i < getProductTitles.length ; i++){
+                        getTitle = getProductTitles[i].innerText.toLowerCase();
+                        let getTitleText = getTitle;
+                        if(getTitle.indexOf(getText) > -1){
+                        
+                            productContainers[i].style.display = "block";
+                        }else {
+                            productContainers[i].style.display = "none";
+                        }
+                    }
+                })
+                
+            </script>
+    </section>
+    <!-- Products Section End -->
     <!-- Week product show section Start -->
     <section class="week-product-show-section">
         <div class="week-product-show-section-container">

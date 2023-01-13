@@ -142,741 +142,86 @@
         </div> 
         <!-- search box end -->
             <div class="relative product-section-container">
-                <div class="absolute left-0 py-3 w-full slide-product-btn-container">
-                    <button type="button" id="product-prev-btn" class="product-prev-btn"> <i class="fas fa-arrow-left"></i></button>
-                    <button type="button" id="product-next-btn" class="product-next-btn"> <i class="fas fa-arrow-right"></i></button>
-                </div>
-                <div class="product-container">
-                    <div class="product-container-title">
-                        <h1 >Latest Products</h1>
-                        <p class="text-muted">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quo tempore dolore aperiam cupiditate molestiae voluptatum exercitationem id amet laboriosam architecto 
-                        </p>
-                    </div>
-                    <div class="show-products-container">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/p1.jpg.webp" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
+                <div class="show-products-container">
+                    <div class="row">
+                        <?php
+                            include "./phpEngine/config.php";
+                            $sql = "SELECT * FROM products_list";
+                            $result = mysqli_query( $conn , $sql );
+
+                            if(mysqli_num_rows($result) > 0){
+                                while($row = mysqli_fetch_assoc($result)){
+                        ?>            
+                                    <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
+                                    <div class="w-full product-items">
+                                        <div class="product-img-container">
+                                            <img src="./assets/img/product-imgs/<?php echo $row["p_img1"] ?>" alt="<?php echo $row["p_img1"] ?>">
+                                        </div>
+                                        <div class="uppercase font-semibold my-2 product-detail">
+                                            <p class="leading-tight"><?php echo $row["p_name"] ?></p>
+                                        </div>
+                                        <div class="price-container my-2">
+                                            <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
+                                        </div>
+                                        <div class="item-tools">
+                                            <ul class="flex item-tool-list">
+                                                <li class="relative flex item-tool-list-item">
+                                                    <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                                    <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                        <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="relative flex item-tool-list-item">
+                                                    <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
+                                                    <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                        <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="relative flex item-tool-list-item">
+                                                    <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
+                                                    <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                        <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
+                                                    </ul>
+                                                </li>   
+                                                <li class="relative flex item-tool-list-item">
+                                                    <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                                    <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
+                                                        <li class="item-show-detail"><span class="inlin-block">view more</span></li>
+                                                    </ul>
+        
+                                                </li>                                             
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/p2.jpg.webp" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/p3.jpg.webp" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/p4.jpg.webp" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/p5.jpg.webp" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/p6.jpg.webp" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>   
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/p7.jpg.webp" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>   
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/p8.jpg.webp" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>                                                                        
-                        </div>
+                        <?php
+                                }
+                            }
+                        ?>                                                                       
                     </div>
                 </div>
-                <div class="product-container">
-                    <div class="product-container-title">
-                        <h1 >Coming Products</h1>
-                        <p class="text-muted">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, quo tempore dolore aperiam cupiditate molestiae voluptatum exercitationem id amet laboriosam architecto 
-                        </p>
-                    </div>
-                    <div class="show-products-container">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/cp1.jpg" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/cp2.jpg" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/cp3.jpg" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/cp4.jpg" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/cp5.jpg" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/cp6.jpg" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>   
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/cp7.jpg" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>   
-                            <div class="col-lg-3 col-md-6 col-sm-12 p-3 show-products-items-container">
-                                <div class="w-full product-items">
-                                    <div class="product-img-container">
-                                        <img src="./assets/img/product-imgs/cp8.jpg" alt="">
-                                    </div>
-                                    <div class="uppercase font-semibold my-2 product-detail">
-                                        <p class="leading-tight">Addidas new hammer sole for sports person</p>
-                                    </div>
-                                    <div class="price-container my-2">
-                                        <span class="font-semibold">$150.00</span> <span class="text-muted font-semibold line-through">$210.00</span>
-                                    </div>
-                                    <div class="item-tools">
-                                        <ul class="flex item-tool-list">
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="far fa-heart"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Wish list</span></li>
-                                                </ul>
-                                            </li>
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-sync"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">Compare</span></li>
-                                                </ul>
-                                            </li>   
-                                            <li class="relative flex item-tool-list-item">
-                                                <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
-                                                <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
-                                                    <li class="item-show-detail"><span class="inlin-block">view more</span></li>
-                                                </ul>
-    
-                                            </li>                                             
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>                                                                        
-                        </div>
-                    </div>
-                </div>
-    
-                <script>
-                    let getShowProductContainers = document.querySelectorAll(".product-container");
-    
-                    let productPrevBtn = document.querySelector("#product-prev-btn");
-    
-                    let productNextBtn = document.querySelector("#product-next-btn");
-    
-                    let showProductIdx = 0 ;
-    
-                    function showProductFun(num){
-                        getShowProductContainers.forEach(function(getShowProductContainer){
-                            getShowProductContainer.classList.remove("product-container-show") ;
-                        })
-                        getShowProductContainers[num].classList.add("product-container-show") ;
-                    }
-                    showProductFun(showProductIdx);
-    
-                    productPrevBtn.addEventListener("click",function(){
-                        showProductIdx--;
-                        if(showProductIdx < 0){
-                            showProductIdx = getShowProductContainers.length-1;
-                        }
-                        showProductFun(showProductIdx)
-                    })
-                    productNextBtn.addEventListener("click",function(){
-                        showProductIdx++;
-                        if(showProductIdx == getShowProductContainers.length){
-                            showProductIdx = 0;
-                        }
-                        showProductFun(showProductIdx)
-                    })
-    
-                </script>
             </div> 
+            <script>
+                let getFilterText = document.getElementById("search-blog");
+                let productContainers = document.querySelectorAll(".show-products-items-container");
+                let getProductTitles = document.querySelectorAll(".product-detail p");
+
+                getFilterText.addEventListener("keyup",function(){
+                    let getText = getFilterText.value.toLowerCase();
+                    let getTitle ;
+                    for(let i = 0 ; i < getProductTitles.length ; i++){
+                        getTitle = getProductTitles[i].innerText.toLowerCase();
+                        let getTitleText = getTitle;
+                        if(getTitle.indexOf(getText) > -1){
+                        
+                            productContainers[i].style.display = "block";
+                        }else {
+                            productContainers[i].style.display = "none";
+                        }
+                    }
+                })
+                
+            </script>
     </section>
     <!-- Products Section End -->
     <!-- Week product show section Start -->

@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS carts (
     p_id VARCHAR (255) NOT NULL DEFAULT "# Enter Product Code" ,
     p_name VARCHAR (100) NOT NULL DEFAULT "# Enter Product Name",
     price VARCHAR(100) NOT NULL DEFAULT "# Enter Price",
-    quantity INT NOT NULL DEFAULT "1",
+    quantity INT NOT NULL DEFAULT 1,
     p_img1 BLOB NOT NULL DEFAULT "# Enter Photo",
     p_img2 BLOB NOT NULL DEFAULT "# Enter Photo",
     p_description TEXT NOT NULL DEFAULT "Nice" ,

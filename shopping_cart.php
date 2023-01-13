@@ -147,85 +147,78 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            include "./phpEngine/config.php";
+                            $sql = "SELECT * FROM carts ORDER BY id DESC";
+                            $result = mysqli_query( $conn , $sql );
+
+                            if(mysqli_num_rows($result) > 0){
+                                while( $row = mysqli_fetch_assoc($result)){
+                        ?>
                         <tr class="text-black">
                             <td class="">
                                 <div class="flex justify-start items-center">
                                     <div class="w-40 h-36 p-2 me-3 cart-img-product-title-container">
                                         <div class="w-full h-full cart-img-container">
-                                            <img src="./assets/img/product-imgs/p4.jpg.webp" class="img-thumbnail w-full h-full" alt="">
+                                            <img src="./assets/img/product-imgs/<?php echo $row["p_img1"]?>" class="img-thumbnail w-full h-full" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="font-semibold">
                                 <div class="w-full h-36 flex justify-start items-center">
-                                    <span class="block text-muted font-semibold">Minimalistic shop for multipurpose use</span>
+                                    <span class="block text-muted font-semibold"><?php echo $row["p_name"]?></span>
                                 </div>
                             </td>
                             <td class="font-semibold">
                                 <div class="w-full h-36 flex justify-center items-center">
-                                    <span  class="block text-muted font-semibold"> $<span class="product-price">360</span>.00</span>
+                                    <span  class="block text-muted font-semibold"> $<span class="product-price"><?php echo $row["price"]?></span>.00</span>
                                 </div>
                             </td>
                             <td>
                                 <div class="w-full h-36 flex justify-center items-center">
-                                    <input type="number" name="quantity" id="quantity" value="2" class="w-16 h-16 p-3 outline-none border quantity">
+                                    <input type="number" name="quantity" id="quantity" value="<?php echo $row["quantity"]?>" class="w-16 h-16 p-3 outline-none border quantity">
                                 </div>
                             </td>
                             <td class="font-semibold text-end">
                                 <div class="w-full h-36 flex justify-center items-center">
-                                    <span>$<span class="total-price">360</span> .00</span>
+                                    <span>$<span class="total-price">0</span> .00</span>
                                 </div>
                             </td>
-                        </tr>    
-                        <tr class="text-black">
-                            <td class="">
-                                <div class="flex justify-start items-center">
-                                    <div class="w-40 h-36 p-2 me-3 cart-img-product-title-container">
-                                        <div class="w-full h-full cart-img-container">
-                                            <img src="./assets/img/product-imgs/p4.jpg.webp" class="img-thumbnail w-full h-full" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="font-semibold">
-                                <div class="w-full h-36 flex justify-start items-center">
-                                    <span class="block text-muted font-semibold">Minimalistic shop for multipurpose use</span>
-                                </div>
-                            </td>
-                            <td class="font-semibold">
-                                <div class="w-full h-36 flex justify-center items-center">
-                                    <span  class="block text-muted font-semibold"> $<span class="product-price">120</span>.00</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="w-full h-36 flex justify-center items-center">
-                                    <input type="number" name="quantity" id="quantity" value="4" class="w-16 h-16 p-3 outline-none border quantity">
-                                </div>
-                            </td>
-                            <td class="font-semibold text-end">
-                                <div class="w-full h-36 flex justify-center items-center">
-                                    <span>$<span class="total-price">360</span> .00</span>
-                                </div>
-                            </td>
-                        </tr>                                              
+                        </tr>  
+
+                        <?php
+                                }
+                            }
+                        ?>
+  
                     
                     </tbody>
                     <tfoot>
+
                         <tr>
                             <td class="text-end">
-                                <a href="#" class="btn text-black uppercase font-semibold update-cart-btn">update cart</a>
+                                <a href="./product_detail.php" class="btn text-black uppercase font-semibold update-cart-btn">update cart</a>
                             </td>
                             <td></td>
+
+                            <?php
+                                if(mysqli_num_rows($result) > 0){
+                            ?>
                             <td class="p-0 m-0 ">
                                 <input type="text" name="coupon-code" id="coupon-code" class=" border w-full cupon-code-input" placeholder="Coupon Code">
                             </td>
                             <td class="p-0 m-0 ">
-                                <a href="#" class="text-white btn uppercase font-semibold rounded-0 coupon-apply-btn w-full">apply</a>
+                                <a href="./phpEngine/create_order_table.php" id="applycartbtn" class="text-white btn uppercase font-semibold rounded-0 coupon-apply-btn w-full" >apply</a>
                             </td>
                             <td class="p-0 m-0 text-end">
                                 <a href="#" class="text-black btn uppercase font-semibold rounded-0 coupon-close-btn w-full">close coupon</a>
                             </td>
+                            <?php
+                                }
+                            ?>
+
+ 
                         </tr>
                         <tr>
                             <td></td>
@@ -260,7 +253,7 @@
                             <td></td>
                             <!-- <td></td> -->
                             <td class="text-center font-normal" colspan="2">
-                                <form action="" class="w-full">
+                                <form action="./phpEngine/edit_order_table.php" method="GET" class="w-full">
                                     <div class="row justify-between w-full">
                                         <div class="col-4 flex justify-start items-start">
                                             <span id="total-price">	Shipping</span>
@@ -288,7 +281,7 @@
                                         </div>
                                         <div class="col-12 cart-select-box my-3">
                                             <div class="form-group">
-                                                <select name="" id="" class="form-select">
+                                                <select name="country" id="" class="form-select" required>
                                                     <option value="bgl" selected >Bangalash</option>
                                                     <option value="myn">Myanmar</option>
                                                     <option value="sgn">Singapore</option>
@@ -297,7 +290,7 @@
                                         </div>
                                         <div class="col-12 cart-select-box my-3">
                                             <div class="form-group">
-                                                <select name="" id="" class="form-select">
+                                                <select name="state" id="" class="form-select" required>
                                                     <option value="st1" selected >Select a state</option>
                                                     <option value="st1">State 1</option>
                                                     <option value="st2">State 2</option>
@@ -305,7 +298,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-12 cart-select-box my-3">
+                                        <div class="col-12 cart-select-box my-3" required>
                                             <div class="form-group">
                                                 <input type="text" name="postalcode" id="postalcode" class="form-control rounded-0 cart-postal-box" placeholder="Postal Code">
                                             </div>
@@ -323,8 +316,8 @@
                 </table>
                 <div class="row justify-end cart-submit-btn-group">
                     <div class="btn-group col-6 ">
-                        <a href="#" class="btn py-2 px-5 rounded-0 font-semibold uppercase ">Continue shopping</a>
-                        <a href="#" class="btn py-2 px-5 rounded-0 font-semibold uppercase ">PROCEED TO CHECKOUT</a>
+                        <a href="./index.php" class="btn py-2 px-5 rounded-0 font-semibold uppercase ">Continue shopping</a>
+                        <a href="./check_out.php" class="btn py-2 px-5 rounded-0 font-semibold uppercase ">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>
 

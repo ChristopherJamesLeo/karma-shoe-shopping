@@ -293,7 +293,7 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <form action="" class="order-form">
+                            <form action="./phpEngine/add_payment.php" class="order-form">
                                 <table class="col-12 cursor-pointer">
                                     <tr class="text-light w-full p-2 flex justify-between block">
                                         <td class="text-muted">Product</td>
@@ -301,24 +301,26 @@
                                         <td></td>
                                         <td class="text-muted">Total</td>
                                     </tr>
-                                    <tr class="text-light w-full p-2 flex justify-between block">
-                                        <td class="text-muted">Fresh Blackberry </td>
-                                        <td class="d-none price">180</td>
-                                        <td class="text-dark ">x<span class="product-quantity">2</span></td>
-                                        <td class="text-muted price-total">$720.00</td>
-                                    </tr>
-                                    <tr class="text-light w-full p-2 flex justify-between block">
-                                        <td class="text-muted">Fresh Tomatoes</td>
-                                        <td class="d-none price">180</td>
-                                        <td class="text-dark ">x<span class="product-quantity">3</span></td>
-                                        <td class="text-muted price-total">$720.00</td>
-                                    </tr>
-                                    <tr class="text-light w-full p-2 flex justify-between block">
-                                        <td class="text-muted">Fresh Brocoli </td>
-                                        <td class="d-none price">200</td>
-                                        <td class="text-dark ">x<span class="product-quantity">4</span></td>
-                                        <td class="text-muted price-total">$720.00</td>
-                                    </tr>
+                                    <?php
+                                        include "./phpEngine/config.php";
+
+                                        $sql = "SELECT * FROM orders ORDER BY id DESC";
+                                        $result = mysqli_query($conn , $sql);
+
+                                        if(mysqli_num_rows($result) > 0){
+                                            while( $row = mysqli_fetch_assoc($result)){
+                                    ?>
+
+                                            <tr class="text-light w-full p-2 flex justify-between block">
+                                                <td class="text-muted"><?php echo $row["p_name"] ?></td>
+                                                <td class="d-none price"><?php echo $row["price"] ?></td>
+                                                <td class="text-dark ">x<span class="product-quantity"><?php echo $row["quantity"] ?></span></td>
+                                                <td class="text-muted price-total">$0.00</td>
+                                            </tr>
+                                    <?php
+                                            }
+                                        }
+                                    ?>
                                     <tfoot class="font-semibold">
                                         <tr class="text-light w-full p-2 flex justify-between block">
                                             <td class="text-dark">SUBTOTAL </td>
@@ -368,14 +370,14 @@
                                     Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
                                 </p>
                                 <div class="form-group my-3">
-                                    <input type="radio" name="payment" value="cash" id="paypal" class="form-check-input">
+                                    <input type="radio" name="payment" value="paypal" id="paypal" class="form-check-input">
                                     <label for="paypal" class="uppercase">PAYPAL</label>
                                 </div>
                                 <p class="p-4 text-muted bg-white">
                                     Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.
                                 </p>
                                 <div class="form-group my-3 ">
-                                    <input type="checkbox" name="accept" id="accept" >
+                                    <input type="checkbox" name="accept" id="accept" required>
                                     <span class="">I’ve read and accept the</span><a href="#"> terms & conditions*</a>
                                 </div>
                                 <div class="grid">

@@ -253,18 +253,24 @@
 
                                 <td class="text-muted col-3">Total</td>
                             </tr>
+                            <?php
+                                include "./phpEngine/config.php";
+                                $sql = "SELECT * FROM orders ORDER BY id DESC";
+                                $result = mysqli_query( $conn , $sql );
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                            ?>
                             <tr class="text-light p-2">
-                                <td class="text-muted">Fresh Blackberry </td>
-                                <td class="d-none price">230</td>
-                                <td class="text-dark font-semibold ">x<span class="product-quantity">2</span></td>
+                                <td class="text-muted"><?php echo $row["p_name"] ?></td>
+                                <td class="d-none price"><?php echo $row["price"] ?></td>
+                                <td class="text-dark font-semibold ">x<span class="product-quantity"><?php echo $row["quantity"] ?></span></td>
                                 <td class="text-muted price-total">$720.00</td>
                             </tr>
-                            <tr class="text-light p-2">
-                                <td class="text-muted">Fresh Blackberry </td>
-                                <td class="d-none price">180</td>
-                                <td class="text-dark font-semibold ">x<span class="product-quantity">7</span></td>
-                                <td class="text-muted price-total">$720.00</td>
-                            </tr>
+                            <?php
+                                    }
+                                }
+                            ?>
+
 
                             <tfoot class="font-semibold">
                                 <tr class="text-light p-2">
