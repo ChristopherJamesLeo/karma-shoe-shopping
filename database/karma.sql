@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS users (
     city CHAR(255) NOT NULL DEFAULT "# Enter Your City",
     district CHAR(100) NOT NULL DEFAULT "# District",
     postcode CHAR(100) NOT NULL DEFAULT "# Enter PostCode",
-    remember CHAR(25) NOT NULL DEFAULT "1"
+    remember CHAR(25) NOT NULL DEFAULT "0"
 );
 
 INSERT INTO users (firstname,lastname,phonenumber,email,userImg,password,role,JOD,country,address1,address2,city,district,postcode,remember) VALUES 

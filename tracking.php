@@ -56,7 +56,19 @@
                         </li>
                         <li class="nav-item relative active"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="nav-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
+                                <li class="nav-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
+                                
                                 <li class="navbar-item active"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">Register</a></li>
                                 
@@ -88,7 +100,18 @@
                         </li>
                         <li class="nav-item active"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="navbar-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
                                 <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
                                 <li class="navbar-item active"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item "><a href="./register.php" id="" class="nav-link">Register</a></li>
                                 

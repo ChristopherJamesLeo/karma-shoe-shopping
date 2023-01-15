@@ -56,7 +56,19 @@
                         </li>
                         <li class="nav-item relative"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="nav-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
+                                <li class="nav-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
+                                
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item active"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -88,7 +100,18 @@
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="navbar-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
                                 <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item active"><a href="./register.php" id="" class="nav-link">regitster</a></li>
                                 
@@ -144,18 +167,13 @@
                             <h1 class="h4">Register</h1>
                         </div>
                         <hr>
-                        <form action="" class="mt-3 billing-create-form-container" method="get" enctype="multipart/form-data">
+                        <form action="./phpEngine/register.php" class="mt-3 billing-create-form-container" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 my-2 form-group">
                                     <input type="text" name="firstname" id="firstname" class="form-control rounded-0" placeholder="First Name" required>
                                 </div>
                                 <div class="col-lg-6 col-md-12 my-2  form-group">
                                     <input type="text" name="lastname" id="lastname" class="form-control rounded-0" placeholder="Last Name"required >
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <input type="text" name="companyname" id="companyname" class="form-control rounded-0" placeholder="Company Name" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -174,9 +192,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <select name="" id="" class="form-select rounded-0" required>
+                                    <select name="country" id="" class="form-select rounded-0" required>
                                         <option value="" selected disabled>Choose Your Country</option>
-                                        <option value="my">Myanmar</option>
+                                        <option value="mya">Myanmar</option>
                                         <option value="sgn">Singapore</option>
                                         <option value="thi">Thailand</option>
                                     </select>
@@ -184,7 +202,7 @@
                             </div>    
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <select name="" id="" class="form-select rounded-0" required>
+                                    <select name="role" id="" class="form-select rounded-0" required>
                                         <option value="" selected disabled>Role</option>
                                         <option value="0">User</option>
                                         <option value="1">Admin</option>
@@ -209,7 +227,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <select name="" id="" class="form-select rounded-0" required>
+                                    <select name="district" id="" class="form-select rounded-0" required>
                                         <option value="" selected disabled>District</option>
                                         <option value="d1">District 1</option>
                                         <option value="d2">District 2</option>
@@ -229,8 +247,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <input type="checkbox" name="createAccount" id="createAccount" class="form-check-input me-2" value="remember">
-                                    <label for="createAccount">Remember ?</label>
+                                    <input type="checkbox" name="remember" id="remember" class="form-check-input me-2" value="1" required>
+                                    <label for="remember">Remember ?</label>
                                 </div>
                             </div>    
                             <div class="text-center register-btn-container ">

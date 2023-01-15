@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="./custom_css/media-style.css">
 </head>
 <body>
+<?php
+    session_start();
+?>
 <!-- Header Start  -->
     <header class="w-screen header secondary-header">
         <!-- navbar start -->
@@ -56,7 +59,19 @@
                         </li>
                         <li class="nav-item relative"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="nav-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
+                                <li class="nav-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
+                                
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -88,7 +103,18 @@
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="navbar-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
                                 <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -132,6 +158,9 @@
         </section>
     </header>
     <!-- Header End -->
+    <?php
+    if(isset($_SESSION["user_id"])){
+    ?>
     <!-- shopping cart body -start -->
     <section class="shopping_cart_section">
         <div class="shopping_cart-container">
@@ -148,8 +177,9 @@
                     </thead>
                     <tbody>
                         <?php
+
                             include "./phpEngine/config.php";
-                            $sql = "SELECT * FROM carts ORDER BY id DESC";
+                            $sql = "SELECT * FROM carts WHERE user_id = {$_SESSION['user_id']} ORDER BY id DESC";
                             $result = mysqli_query( $conn , $sql );
 
                             if(mysqli_num_rows($result) > 0){
@@ -326,6 +356,12 @@
         </div>
     </section>
         <!-- shopping cart body -end -->
+    <?php
+    } else {
+        echo "<div class='text-center font-bold text-6xl h-96 text-orange-500 grid place-items-center'>Nothing To Show</div>";
+    }
+    ?>
+
     <!-- Week product show section Start -->
     <section class="week-product-show-section">
         <div class="week-product-show-section-container">

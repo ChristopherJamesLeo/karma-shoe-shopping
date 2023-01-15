@@ -56,7 +56,18 @@
                         </li>
                         <li class="nav-item relative active"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item active"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="navbar-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
+                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -88,7 +99,19 @@
                         </li>
                         <li class="nav-item active"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item active"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="navbar-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
+                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
+                                
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item "><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -146,17 +169,17 @@
                             </p>
                         </div>
                         <div class="log-in-left-create-account">
-                            <a href="#" class="uppercase font-semibold">Create An Account</a>
+                            <a href="./register.php" class="uppercase font-semibold">Create An Account</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 mb-md-3 shadow-sm log-in-section-right ">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="./phpEngine/login.php" method="post" enctype="multipart/form-data">
                         <div class="text-center login-left-heading login-right-heading">
                             <h1 class="h4">LOG IN TO ENTER</h1>
                         </div>
                         <div class="form-group my-4">
-                            <input type="text" name="username" id="username" class="px-3 py-2 w-full h-full rounded-0 border-b username" placeholder="Username">
+                            <input type="email" name="email" id="email" class="px-3 py-2 w-full h-full rounded-0 border-b username" placeholder="Email">
                         </div>
                         <div class="form-group my-4">
                             <input type="password" name="password" id="password" class="px-3 py-2 w-full h-full rounded-0 border-b password" placeholder="Password">

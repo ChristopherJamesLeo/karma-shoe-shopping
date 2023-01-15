@@ -17,18 +17,22 @@
     <link rel="stylesheet" href="./custom_css/media-style.css">
 
 </head>
+
 <body>
+<?php
+    session_start();
+?>
     <!-- Header Start  -->
     <header class="w-full h-screen header">
         <!-- navbar start -->
         <nav id="navbar" class=" nav-bar shadow-md">
             <div class="row justify-content-between items-center">
-                <div class="col-6">
+                <div class="col-5">
                     <a href="./index.php">
                         <img src="./assets/img/background-imgs/logo.png.webp" alt="">
                     </a>
                 </div>
-                <div class="col-6 flex justify-content-end">
+                <div class="col-7 flex justify-content-end">
                     <div class="slide-btn-container place-items-center">
                         <button id="slide-btn" class="slide-btn">
                             <div></div>
@@ -57,13 +61,27 @@
                         </li>
                         <li class="nav-item relative"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="nav-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
+                                <li class="nav-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
+                                
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
                             </ul>
                         </li>
                         <li class="nav-item"><a href="./contact_us.php" class="nav-link">Content</a></li>
+
+                        
                         <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                         <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
                     </ul>
@@ -89,13 +107,24 @@
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
+                                <?php
+                                    if(isset($_SESSION["user_id"])){
+                                ?>
+                                <li class="navbar-item"><a href="./phpEngine/log_out.php" id="" class="nav-link">log out</a></li>
+                                <?php
+                                    }else{
+                                ?>
                                 <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                                <?php
+                                    }
+                                ?>
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
                             </ul>
                         </li>
                         <li class="nav-item"><a href="./contact_us.php" class="nav-link">Content</a></li>
+                    
                         <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                         <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
                     </ul>

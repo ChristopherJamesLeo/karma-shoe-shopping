@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="./custom_css/media-style.css">
 </head>
 <body>
+    <?php
+    session_start();
+    ?>
     <!-- Header Start  -->
     <header class="w-full header secondary-header">
         <!-- navbar start -->
@@ -56,7 +59,19 @@
                         </li>
                         <li class="nav-item relative"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="nav-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
+                                <li class="nav-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
+                                
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -88,7 +103,17 @@
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
+                                <?php
+                                    if(isset($_SESSION["user_id"])){
+                                ?>
+                                <li class="navbar-item"><a href="./phpEngine/log_out.php" id="" class="nav-link">log out</a></li>
+                                <?php
+                                    }else{
+                                ?>
                                 <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                                <?php
+                                    }
+                                ?>
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -137,40 +162,49 @@
     <!-- Check out body section Start -->
     <section class="checkout-section">
         <div class="checkout-section-container">
+        <?php
+            if(!isset($_SESSION["user_id"])){
+        ?>
             <div class="my-2 checkout-log-in-container">
                 <div class="flex jusctify-start py-2 px-3 check-out-heading">
                     <h1 class="me-2">Returning Customer ?</h1> <a href="#" class="text-emeral-400 underline">Click here to login</a>
                 </div>
-                <div class="p-3 check-out-each-body">
-                    <p class="text-muted mb-3">
-                        If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing & Shipping section.
-                    </p>
-                    <div class="row">
-                        <div class="col-lg-7 col-md-12 col sm-12">
-                            <form action="" class="w-full">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 p-3 form-group">
-                                        <input type="text" name="username_or_email" id="username_or_email" class="form-control rounded-0" placeholder="Username or Email">
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 p-3 form-group">
-                                        <input type="password" name="password" id="password" class="form-control rounded-0" placeholder="Password">
-                                    </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-12 p-3 flex justify-start items-center log-in-submit-btn-group">
-                                        <button type="submit" class="btn py-1 px-4 me-5">Log In</button>
-                                        <div class="form-group">
-                                            <input type="checkbox" name="remember" id="remember" class="form-check-input">
-                                            <label for="remember" class="text-muted ms-2">Remember me</label>
+
+                        <div class="p-3 check-out-each-body">
+                        <p class="text-muted mb-3">
+                            If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing & Shipping section.
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12 col sm-12">
+                                <form action="./phpEngine/login.php" method="post" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 p-3 form-group">
+                                            <input type="email" name="email" id="email" class="form-control rounded-0" placeholder="Email">
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 p-3 form-group">
+                                            <input type="password" name="password" id="password" class="form-control rounded-0" placeholder="Password">
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-12 p-3 flex justify-start items-center log-in-submit-btn-group">
+                                            <button type="submit" class="btn py-1 px-4 me-5">Log In</button>
+                                            <div class="form-group">
+                                                <input type="checkbox" name="remember" id="remember" class="form-check-input">
+                                                <label for="remember" class="text-muted ms-2">Remember me</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-12 p-3 flex justify-start items-center ">
+                                            <a href="#" class="text-muted">Lost Your Password ?</a>
                                         </div>
                                     </div>
-                                    <div class="col-lg-8 col-md-8 col-sm-12 p-3 flex justify-start items-center ">
-                                        <a href="#" class="text-muted">Lost Your Password ?</a>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+
             </div>
+        <?php
+            }
+        ?>
             <div class="my-2 checkout-log-in-container">
                 <div class="flex jusctify-start py-2 px-3 check-out-heading">
                     <h1 class="me-2">Have a coupon? ?</h1> <a href="#" class="text-emeral-400 underline">Click here to enter your code</a>
@@ -199,18 +233,135 @@
                             <h1 class="h5">Biling Details</h1>
                         </div>
                         <hr>
-                        <form action="" class="mt-3 billing-create-form-container">
+                        <?php
+                        if(isset($_SESSION["user_id"])){
+                            ?>
+
+                        <form action="" method="GET" class="mt-3 billing-create-form-container">
+                           
+                            <?php
+                                include "./phpEngine/config.php";
+
+                                $userSql = "SELECT * FROM users WHERE id = {$_SESSION['user_id']}";
+                                $userResult = mysqli_query( $conn , $userSql );
+
+                                if(mysqli_num_rows($userResult) > 0){
+                                    while( $userRow = mysqli_fetch_assoc($userResult)){
+                                ?>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 my-2 form-group">
+                                    <input type="text" name="firstname" id="firstname" class="form-control rounded-0" placeholder="First Name" value = "<?php echo $userRow['firstname'] ?>">
+                                </div>
+                                <div class="col-lg-6 col-md-12 my-2  form-group">
+                                    <input type="text" name="lastname" id="lastname" class="form-control rounded-0" placeholder="Last Name" value = "<?php echo $userRow['lastname'] ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12 my-2 form-group">
+                                    <input type="text" name="phonenumber" id="phonenumber" class="form-control rounded-0" placeholder="Phone Number"  value = "<?php echo $userRow['phonenumber'] ?>">
+                                </div>                                
+                                <div class="col-lg-6 col-md-12 my-2  form-group">
+                                    <input type="email" name="email" id="email" class="form-control rounded-0" placeholder="Email Address" value = "<?php echo $userRow['email'] ?>">
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2  form-group">
+                                    <select name="" id="" class="form-select rounded-0">
+                                        <option value="" selected disabled>Choose Your Country</option>
+                                        <?php 
+                                        if( $userRow['country'] = "mya"){
+                                        ?>
+                                        <option value="my" selected>Myanmar</option>
+                                        <?php
+                                        }elseif ($userRow['country'] = "sgn") {
+                                        ?>
+                                        <option value="sgn" selected>Singapore</option>
+                                        <?php
+                                        }else{
+                                            ?>
+                                        <option value="thi" selected>Thailand</option>
+                                        <?php
+                                        }
+                                        ?>
+
+                                    </select>
+                                </div>                                
+                            </div>     
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2 form-group">
+                                    <input type="text" name="address1" id="address1" class="form-control rounded-0" placeholder="Address 1" value = "<?php echo $userRow['address1'] ?>">
+                                </div>
+                            </div>     
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2  form-group">
+                                    <input type="text" name="address2" id="address1" class="form-control rounded-0" placeholder="Address 2"  value = "<?php echo $userRow['address2'] ?>">
+                                </div>
+                            </div>     
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2  form-group">
+                                    <input type="text" name="township" id="township" class="form-control rounded-0" placeholder="Town / City"  value = "<?php echo $userRow['city'] ?>">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2  form-group">
+                                    <select name="" id="" class="form-select rounded-0">
+                                        <option value="" selected disabled>District</option>
+                                        <?php 
+                                        if( $userRow['district'] = "district1"){
+                                        ?>
+                                        <option value="district1" selected>District 1</option>
+                                        <?php
+                                        }elseif ($userRow['district'] = "district2") {
+                                        ?>
+                                        <option value="district2" selected>District 2</option>
+                                        <?php
+                                        }else{
+                                            ?>
+                                        <option value="district3" selected>District 3</option>
+                                        <?php
+                                        }
+                                        ?>
+                                        
+                                        
+                                        
+                                    </select>
+                                </div>                                
+                            </div> 
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2  form-group">
+                                    <input type="text" name="postcode" id="postcode" class="form-control rounded-0" placeholder="Postcode / ZIP" value = "<?php echo $userRow['postcode'] ?>">
+                                </div>
+                            </div>
+                                <?php 
+                                    }
+                                }
+
+                            ?>
+  
+                            <?php
+                            if(!isset($_SESSION["user_id"])){
+                            ?>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 my-2  form-group">
+                                    <input type="checkbox" name="createAccount" id="createAccount" class="form-check-input me-2">
+                                    <label for="createAccount">Create an Account ?</label>
+                                </div>
+                            </div> 
+                            <?php
+                            } 
+                            ?>
+                        </form>
+                        <?php
+                        }else {
+                        ?>
+                        <form action="" method="GET" class="mt-3 billing-create-form-container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-12 my-2 form-group">
                                     <input type="text" name="firstname" id="firstname" class="form-control rounded-0" placeholder="First Name">
                                 </div>
                                 <div class="col-lg-6 col-md-12 my-2  form-group">
                                     <input type="text" name="lastname" id="lastname" class="form-control rounded-0" placeholder="Last Name">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 col-md-12 my-2  form-group">
-                                    <input type="text" name="companyname" id="companyname" class="form-control rounded-0" placeholder="Company Name">
                                 </div>
                             </div>
                             <div class="row">
@@ -226,9 +377,9 @@
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
                                     <select name="" id="" class="form-select rounded-0">
                                         <option value="" selected disabled>Choose Your Country</option>
-                                        <option value="my">Myanmar</option>
-                                        <option value="sgn">Singapore</option>
-                                        <option value="thi">Thailand</option>
+                                        <option value="my" selected>Myanmar</option>
+                                        <option value="sgn" selected>Singapore</option>
+                                        <option value="thi" selected>Thailand</option>
                                     </select>
                                 </div>                                
                             </div>     
@@ -251,9 +402,9 @@
                                 <div class="col-lg-12 col-md-12 my-2  form-group">
                                     <select name="" id="" class="form-select rounded-0">
                                         <option value="" selected disabled>District</option>
-                                        <option value="d1">District 1</option>
-                                        <option value="d2">District 2</option>
-                                        <option value="d3">District 3</option>
+                                        <option value="district3" selected>District 1</option>
+                                        <option value="district3" selected>District 2</option>
+                                        <option value="district3" selected>District 3</option>
                                     </select>
                                 </div>                                
                             </div> 
@@ -267,8 +418,12 @@
                                     <input type="checkbox" name="createAccount" id="createAccount" class="form-check-input me-2">
                                     <label for="createAccount">Create an Account ?</label>
                                 </div>
-                            </div>                                            
+                            </div> 
                         </form>
+                        <?php
+                        }
+                        ?>
+
                         <div class="mt-3 billing-heading-container">
                             <h1 class="h5">Shipping Details</h1>
                         </div>
@@ -293,6 +448,9 @@
                         </div>
                         <hr>
                         <div class="row">
+                            <?php
+                            if(isset($_SESSION["user_id"])){
+                            ?>
                             <form action="./phpEngine/add_payment.php" class="order-form">
                                 <table class="col-12 cursor-pointer">
                                     <tr class="text-light w-full p-2 flex justify-between block">
@@ -302,9 +460,9 @@
                                         <td class="text-muted">Total</td>
                                     </tr>
                                     <?php
-                                        include "./phpEngine/config.php";
+                                        
 
-                                        $sql = "SELECT * FROM orders ORDER BY id DESC";
+                                        $sql = "SELECT * FROM orders WHERE userid = {$_SESSION['user_id']} ORDER BY id DESC";
                                         $result = mysqli_query($conn , $sql);
 
                                         if(mysqli_num_rows($result) > 0){
@@ -384,6 +542,12 @@
                                     <button type="submit" class="btn uppercase py-2 rounded-0 font-semibold">Process to paypal</button>
                                 </div>
                             </form>
+
+                            <?php
+                            }else {
+                                echo "<h1 class= 'text-center text-xl'> Nothing to show</h1>";
+                            }
+                            ?>
 
                         </div>
 

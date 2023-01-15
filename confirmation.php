@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="./custom_css/media-style.css">
 </head>
 <body>
+    <?php
+   session_start();
+   include "./phpEngine/config.php";
+    ?>
 <!-- Header Start  -->
     <header class="w-screen header secondary-header">
         <!-- navbar start -->
@@ -56,7 +60,19 @@
                         </li>
                         <li class="nav-item relative"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase absolute left-0 bg-white navbar-menu-item">
-                                <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                            
+                            if(isset($_SESSION["user_id"])){
+                            ?>
+                                <li class="nav-item"><a href="./phpEngine/log_out.php" class="nav-link">Log Out</a></li>
+                            <?php
+                                }else {
+                            ?>
+                                <li class="nav-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                            <?php
+                                }
+                            ?>
+                                
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -88,7 +104,17 @@
                         </li>
                         <li class="nav-item"><a href="#" class="nav-link">Pages</a>
                             <ul class="uppercase left-0 bg-white navbar-menu-item">
+                                <?php
+                                    if(isset($_SESSION["user_id"])){
+                                ?>
+                                <li class="navbar-item"><a href="./phpEngine/log_out.php" id="" class="nav-link">log out</a></li>
+                                <?php
+                                    }else{
+                                ?>
                                 <li class="navbar-item"><a href="./Login.php" id="" class="nav-link">login</a></li>
+                                <?php
+                                    }
+                                ?>
                                 <li class="navbar-item"><a href="./tracking.php" id="" class="nav-link">tracking</a></li>
                                 <li class="navbar-item"><a href="./register.php" id="" class="nav-link">register</a></li>
                                 
@@ -133,18 +159,30 @@
     </header>
     <!-- Header End -->
     <!-- Start Confirmation Body -->
-    <section class="confirmation-section">
+    <?php
+ 
+    if(isset($_SESSION["user_id"])){
+        ?>
+        <section class="confirmation-section">
         <div class="confirmation-section-container">
             <div class="confirmation-heading text-center my-4">
                 <h1 class="h4 text-green-400">Thank you. Your order has been received.</h1>
             </div>
             <div class="row confirmation-table p-3">
+            <?php
+                $userSql = "SELECT * FROM users WHERE id = {$_SESSION['user_id']}";
+                $userResult = mysqli_query($conn,$userSql);
+
+                if(mysqli_num_rows($userResult) > 0){
+                     while($userRow = mysqli_fetch_assoc($userResult)){
+                ?>
                 <div class="col-lg-4 col-md-6 col-sm-12 p-3">
                     <div class="confirmaiton-table-heading">
                         <h1 class="h5">Order Info</h1>
                     </div>
                     <hr class="my-3">
                     <table class="w-full">
+
                         <div class="row">
                             <tr class="py-3">
                                 <td class=" col-6 text-muted">Order number</td>
@@ -237,7 +275,12 @@
                         </div>
  
                     </table>
-                </div>
+                </div>     
+                <?php
+                    }
+                }
+            ?>
+
             </div>
             <div class="row p-3 confirmation-order-detail ">
                 <div class="col-12 p-3">
@@ -254,8 +297,8 @@
                                 <td class="text-muted col-3">Total</td>
                             </tr>
                             <?php
-                                include "./phpEngine/config.php";
-                                $sql = "SELECT * FROM orders ORDER BY id DESC";
+                                
+                                $sql = "SELECT * FROM orders WHERE userid = {$_SESSION['user_id']} ORDER BY id DESC";
                                 $result = mysqli_query( $conn , $sql );
                                 if(mysqli_num_rows($result) > 0){
                                     while($row = mysqli_fetch_assoc($result)){
@@ -319,6 +362,12 @@
             </div>
         </div>
     </section>
+        <?php
+    }else {
+        echo "<div class='text-center text-7xl font-bold w-screen h-screen text-orange-500 grid place-items-center'><div>Nothing To Show</div></div>";
+    }
+    ?>
+
     <!-- End Confirmation Body -->
     <!-- Week product show section Start -->
     <section class="week-product-show-section">
