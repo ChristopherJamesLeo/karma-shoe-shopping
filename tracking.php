@@ -75,7 +75,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="./contact_us.php" class="nav-link">Content</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li class="nav-item"><a href="./shopping_cart.php" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                         <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
                     </ul>
                 </div>
@@ -118,7 +118,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="./contact_us.php" class="nav-link">Content</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li class="nav-item"><a href="./shopping_cart.php" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                         <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
                     </ul>
                 </div>

@@ -18,6 +18,8 @@
             echo $_SESSION["password"] = $row["password"];
             header("location:http://localhost/karma-shoe-shopping-site(p_17)/index.php");
         }
+    }else {
+        header("location:http://localhost/karma-shoe-shopping-site(p_17)/Login.php");
     }
     mysqli_close($conn);    
 ?>

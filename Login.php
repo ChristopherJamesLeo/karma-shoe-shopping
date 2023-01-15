@@ -74,7 +74,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="./contact_us.php" class="nav-link">Content</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li class="nav-item"><a href="./shopping_cart.php" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                         <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
                     </ul>
                 </div>
@@ -118,7 +118,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a href="./contact_us.php" class="nav-link">Content</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                        <li class="nav-item"><a href="./shopping_cart.php" class="nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                         <li id="search-box-btn" class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search"></i></a></li>
                     </ul>
                 </div>
@@ -185,13 +185,14 @@
                             <input type="password" name="password" id="password" class="px-3 py-2 w-full h-full rounded-0 border-b password" placeholder="Password">
                         </div>
                         <div class="form-group my-4">
-                            <input type="checkbox" name="keepLogIn" id="keepLogIn" class="me-3 form-check-input">
+                            <input type="checkbox" name="keepLogIn" id="keepLogIn" class="me-3 form-check-input" required>
                             <label for="keepLogIn" class="text-muted"> Keep me logged in</label>
                         </div>
                         <div class="grid my-4">
-                            <button type="submit" class="btn uppercase rounded-0 font-semibold">Log In</button>
+                            <button type="submit" name="submit" class="btn uppercase rounded-0 font-semibold">Log In</button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
