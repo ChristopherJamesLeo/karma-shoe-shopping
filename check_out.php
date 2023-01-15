@@ -528,7 +528,7 @@
                                     Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
                                 </p>
                                 <div class="form-group my-3">
-                                    <input type="radio" name="payment" value="paypal" id="paypal" class="form-check-input">
+                                    <input type="radio" name="payment" value="paypal" id="paypal" class="form-check-input" required>
                                     <label for="paypal" class="uppercase">PAYPAL</label>
                                 </div>
                                 <p class="p-4 text-muted bg-white">

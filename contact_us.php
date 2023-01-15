@@ -197,7 +197,7 @@
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-6 col-sm-12 p-2">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="./phpEngine/add_contact.php" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-lg-6 col-md-12">
                                     <div class="my-3 form-group">
@@ -212,7 +212,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <div class="my-3 form-group">
-                                        <textarea name="" id="" cols="30" rows="6" class="w-full rounded-0 border" placeholder="Enter Message"></textarea>
+                                        <textarea name="message" id="" cols="30" rows="6" class="w-full rounded-0 border" placeholder="Enter Message"></textarea>
                                     </div>
                                     <div class="form-group flex justify-end">
                                         <button type="submit" class="btn uppercase font-semibold rounded-0 relative" >Send message</button>

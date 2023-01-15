@@ -192,7 +192,7 @@
                                         <div class="item-tools">
                                             <ul class="flex item-tool-list">
                                                 <li class="relative flex item-tool-list-item">
-                                                    <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                                    <a href="./phpEngine/add_cart.php?id=<?php echo $row['id'] ?>&quantity=1" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
                                                     <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
                                                         <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
                                                     </ul>
@@ -210,7 +210,7 @@
                                                     </ul>
                                                 </li>   
                                                 <li class="relative flex item-tool-list-item">
-                                                    <a href="#" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
+                                                    <a href="./product_detail.php?id=<?php echo $row["id"] ?>" class="nav-link me-2"><i class="fas fa-expand-arrows-alt"></i></a>
                                                     <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
                                                         <li class="item-show-detail"><span class="inlin-block">view more</span></li>
                                                     </ul>

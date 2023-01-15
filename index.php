@@ -521,7 +521,7 @@
                                 <div class="item-tools">
                                     <ul class="flex item-tool-list">
                                         <li class="relative flex item-tool-list-item">
-                                            <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="./phpEngine/add_cart.php?id=<?php echo $row['id']?>&quantity=1" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
                                             <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
                                                 <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
                                             </ul>
@@ -590,7 +590,7 @@
                                 <div class="item-tools">
                                     <ul class="flex item-tool-list">
                                         <li class="relative flex item-tool-list-item">
-                                            <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="./phpEngine/add_cart.php?id=<?php echo $latRow['id'] ?>&quantity=1" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
                                             <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
                                                 <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
                                             </ul>
@@ -692,7 +692,7 @@
 
                         </div>
                         <div class="shop-now-btn-container">
-                            <a href="#" class="uppercase">Shop Now</a>
+                            <a href="./product_detail.php" class="uppercase">Shop Now</a>
                         </div>
                     </div>
                 </div>

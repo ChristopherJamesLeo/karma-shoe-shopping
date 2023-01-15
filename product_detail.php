@@ -263,14 +263,22 @@
                     <div class="description-body-details comments-container">
                         <div class="row">
                             <div class="col-lg-6 col-md-12 mb-md-3 comments-left-side">
+                                <?php
+                                    $comsql = "SELECT * FROM comments WHERE p_id = {$showRow['p_id']} ";
+                                    $comresult = mysqli_query($conn,$comsql);
+
+
+                                    if(mysqli_num_rows($comresult) > 0){
+                                        while($comRow = mysqli_fetch_assoc($comresult)){
+                                ?>
                                 <div class=" row p-3 justify-between items-center  comments-profile-container">
                                     <div class="col-6 flex justify-start items-center com-profile">
                                         <div class="w-16 h-16 rounded-full me-3 overflow-hidden con-profile-img-container">
-                                            <img src="./assets/img/product-imgs/cp4.jpg" class="w-full h-full" alt="">
+                                            <img src="./assets/img/profile-picture/<?php echo $comRow['userImg'] ?>" class="w-full h-full" alt="">
                                         </div>
                                         <div class="com-profile-name-timer-container">
-                                            <h5 class="font-bold capitalize">Blake Ruiz</h5>
-                                            <div class="text-muted font-semibold com-profile-time"><span>12th Feb, 2018 at 05:56 pm</span></div>
+                                            <h5 class="font-bold capitalize"><?php echo $comRow["name"] ?></h5>
+                                            <div class="text-muted font-semibold com-profile-time"><span><?php echo $comRow["JOD"] ?></span></div>
                                         </div>
                                     </div>
                                     <div class="col-6 text-end com-reply-btn-container">
@@ -278,54 +286,23 @@
                                     </div>
                                     <div class="col-12 pt-2 comment-content">
                                         <p class="text-muted">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        <?php echo $comRow["message"] ?>
                                         </p>
                                     </div>
                                 </div>
-                                <div class=" row p-3 justify-between items-center  comments-profile-container">
-                                    <div class="col-6 flex justify-start items-center com-profile">
-                                        <div class="w-16 h-16 rounded-full me-3 overflow-hidden con-profile-img-container">
-                                            <img src="./assets/img/product-imgs/cp4.jpg" class="w-full h-full" alt="">
-                                        </div>
-                                        <div class="com-profile-name-timer-container">
-                                            <h5 class="font-bold capitalize">Blake Ruiz</h5>
-                                            <div class="text-muted font-semibold com-profile-time"><span>12th Feb, 2018 at 05:56 pm</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 text-end com-reply-btn-container">
-                                        <a href="#" class="btn btn-outline-secondary rounded-full w-24 ">Reply</a>
-                                    </div>
-                                    <div class="col-12 pt-2 comment-content">
-                                        <p class="text-muted">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class=" row p-3 justify-between items-center  comments-profile-container">
-                                    <div class="col-6 flex justify-start items-center com-profile">
-                                        <div class="w-16 h-16 rounded-full me-3 overflow-hidden con-profile-img-container">
-                                            <img src="./assets/img/product-imgs/cp4.jpg" class="w-full h-full" alt="">
-                                        </div>
-                                        <div class="com-profile-name-timer-container">
-                                            <h5 class="font-bold capitalize">Blake Ruiz</h5>
-                                            <div class="text-muted font-semibold com-profile-time"><span>12th Feb, 2018 at 05:56 pm</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 text-end com-reply-btn-container">
-                                        <a href="#" class="btn btn-outline-secondary rounded-full w-24 ">Reply</a>
-                                    </div>
-                                    <div class="col-12 pt-2 comment-content">
-                                        <p class="text-muted">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        </p>
-                                    </div>
-                                </div>                                                                
+                                <?php
+                                        }
+                                    }
+
+                                ?>                                                            
 
                             </div>
                             <div class="col-lg-6 col-md-12 mb-md-3 comments-right-side">
                                 <div class="row p-3">
                                     <h1 class="py-1 font-semibold h3">Post a comment</h1>
-                                    <form action="">
+                                    <form action="./phpEngine/add_comments.php" method="post">
+                                        <input type="hidden" name="id" value = "<?php echo $showRow["id"] ?>">
+                                        <input type="hidden" name="p_id" value = "<?php echo $showRow["p_id"] ?>">
                                         <div class="form-group my-3">
                                             <input type="text" name="fullname" id="" class="form-control rounded-0" placeholder="Your Full Name">
                                             
@@ -381,54 +358,32 @@
 
                                     </div>
                                 </div>
+                                <?php
+                                    $revSql = "SELECT * FROM reviews WHERE p_id = {$showRow['p_id']}";
+                                    $revResut = mysqli_query($conn,$revSql);
+                                    if( mysqli_num_rows($revResut) > 0 ){
+                                        while($revRow = mysqli_fetch_assoc($revResut)){
+                                ?>
                                 <div class=" row p-3 justify-between items-center  comments-profile-container">
                                     <div class="col-6 flex justify-start items-center com-profile">
                                         <div class="w-16 h-16 rounded-full me-3 overflow-hidden con-profile-img-container">
-                                            <img src="./assets/img/product-imgs/cp4.jpg" class="w-full h-full" alt="">
+                                            <img src="./assets/img/profile-picture/<?php echo $revRow['userImg'] ?>" class="w-full h-full" alt="">
                                         </div>
                                         <div class="com-profile-name-timer-container">
-                                            <h5 class="font-bold capitalize">Blake Ruiz</h5>
+                                            <h5 class="font-bold capitalize"><?php echo $revRow['name'] ?></h5>
                                             <div class="text-muted font-semibold com-profile-time"><span><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></span></div>
                                         </div>
                                     </div>
                                     <div class="col-12 pt-2 comment-content">
                                         <p class="text-muted">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        <?php echo $revRow['message'] ?>
                                         </p>
                                     </div>
                                 </div>
-                                <div class=" row p-3 justify-between items-center  comments-profile-container">
-                                    <div class="col-6 flex justify-start items-center com-profile">
-                                        <div class="w-16 h-16 rounded-full me-3 overflow-hidden con-profile-img-container">
-                                            <img src="./assets/img/product-imgs/cp4.jpg" class="w-full h-full" alt="">
-                                        </div>
-                                        <div class="com-profile-name-timer-container">
-                                            <h5 class="font-bold capitalize">Blake Ruiz</h5>
-                                            <div class="text-muted font-semibold com-profile-time"><span><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 pt-2 comment-content">
-                                        <p class="text-muted">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class=" row p-3 justify-between items-center  comments-profile-container">
-                                    <div class="col-6 flex justify-start items-center com-profile">
-                                        <div class="w-16 h-16 rounded-full me-3 overflow-hidden con-profile-img-container">
-                                            <img src="./assets/img/product-imgs/cp4.jpg" class="w-full h-full" alt="">
-                                        </div>
-                                        <div class="com-profile-name-timer-container">
-                                            <h5 class="font-bold capitalize">Blake Ruiz</h5>
-                                            <div class="text-muted font-semibold com-profile-time"><span><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 pt-2 comment-content">
-                                        <p class="text-muted">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        </p>
-                                    </div>
-                                </div>                                                                                       
+                                <?php
+                                        }
+                                    }
+                                ?>                                                                                     
                             </div>
                             <div class="col-lg-6 col-md-12 mb-md-3 comments-right-side review-right-side">
                                 <div class="row p-3">
@@ -436,10 +391,12 @@
                                     <div>
                                         <a href="#" class="text-muted font-normal h6">Your Rating <span class="inline-block mx-2"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i></span>Outstanding</a>
                                     </div>
-                                    <form action="">
+                                    <form action="./phpEngine/add_review.php"method="get" >
+                                        <input type="hidden" name="id" value = "<?php echo $showRow["id"] ?>">
+                                        <input type="hidden" name="p_id" value = "<?php echo $showRow["p_id"] ?>">
                                         <div class="form-group my-3">
                                             <input type="text" name="fullname" id="" class="form-control rounded-0" placeholder="Your Full Name">
-                                            
+
                                         </div>
                                         <div class="form-group my-3">
                                             <input type="email" name="email" id="email" class="form-control rounded-0" placeholder="Enter Your Email">
@@ -527,7 +484,7 @@
                                         <div class="item-tools">
                                             <ul class="flex item-tool-list">
                                                 <li class="relative flex item-tool-list-item">
-                                                    <a href="#" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
+                                                    <a href="./phpEngine/add_cart.php?id=<?php echo $row['id'] ?>&quantity=1" class="nav-link me-2"><i class="fas fa-shopping-cart"></i></a>
                                                     <ul class="grid place-items-center uppercase font-semibold item-tool-show-detail-list">
                                                         <li class="item-show-detail"><span class="inlin-block">Add To Bag</span></li>
                                                     </ul>
