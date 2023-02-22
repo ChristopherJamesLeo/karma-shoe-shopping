@@ -221,11 +221,21 @@
                                 <input type="text" name="coupon-code" id="coupon-code" class=" border w-full cupon-code-input" placeholder="Coupon Code">
                             </td>
                             <td class="p-0 m-0 ">
-                                <a href="#" class="text-white btn uppercase font-semibold rounded-0 coupon-apply-btn w-full">apply</a>
+                                <a href="javascript:void(0)" class="text-white btn uppercase font-semibold rounded-0 coupon-apply-btn w-full">apply</a>
                             </td>
                             <td class="p-0 m-0 text-end">
                                 <a href="#" class="text-black btn uppercase font-semibold rounded-0 coupon-close-btn w-full">close coupon</a>
                             </td>
+                            <script>
+                                let getapplyBtn = document.querySelector(".coupon-apply-btn");
+
+                                getapplyBtn.addEventListener("click",function(){
+                                    setTimeout(function(){
+                                        console.log("hello cart")
+                                        window.location.href = "https://google.com";
+                                    },2000)
+                                })
+                            </script>
                         </tr>
                         <tr>
                             <td></td>
